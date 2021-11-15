@@ -94,7 +94,7 @@ gamewaktu = setting.gamewaktu
 petik = '```'
 fake = 'CREATOR BOT INDONESIA'
 ban =[]
-lolkey = 'YTRAMLANID'
+lolkey = 'najisbaperanRw'
 zekskey = 'NinoWangy'
 psycokey = 'PsycoBot'
 xteamkey = 'kurrxd09'
@@ -292,7 +292,7 @@ module.exports = dha = async (dha, mek) => {
         const textImg = (teks) => {
            return dha.sendMessage(from, teks, text, {quoted: mek, thumbnail: fs.readFileSync('./media/ganteng.jpg')})
         }
-        const freply = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: '16504228206@s.whatsapp.net' } : {}) }, message: { "contactMessage": { "displayName": `${pushname}`, "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:XL;${pushname},;;;\nFN:${pushname},\nitem1.TEL;waid=${senderr.split('@')[0]}:${senderr.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`, "jpegThumbnail":fs.readFileSync('./media/sherlynn.jpg')
+        const freply = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: '16504228206@s.whatsapp.net' } : {}) }, message: { "contactMessage": { "displayName": `${pushname}`, "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:XL;${pushname},;;;\nFN:${pushname},\nitem1.TEL;waid=${senderr.split('@')[0]}:${senderr.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`, "jpegThumbnail":fs.readFileSync('./media/canss.jpg')
         }}}
        const math = (teks) => {
            return Math.floor(teks)
@@ -330,7 +330,7 @@ module.exports = dha = async (dha, mek) => {
 	       for (let i of members){
 	       ane.push(i.jid)
 }
-	       dha.sendMessage(from, {text:text, jpegThumbnail:fs.readFileSync('media/sherlynn.jpg')}, 'extendedTextMessage', {contextInfo: {"mentionedJid": ane}})
+	       dha.sendMessage(from, {text:text, jpegThumbnail:fs.readFileSync('media/canss.jpg')}, 'extendedTextMessage', {contextInfo: {"mentionedJid": ane}})
 }  
       const sendWebp = async(to, url) => {
            var names = Date.now() / 10000;
@@ -636,11 +636,6 @@ function banChat() {
         return true
     }
 }
- if (!isGroup && !isCmd && !mek.key.fromMe) {
-      	simi = await fetchJson(`https://api.simsimi.net/v2/?text=${cmd}&lc=id`)
-                     sami = simi.success
-                        dha.sendMessage(from, `_${sami}_`, text, {thumbnail: fakeimage, sendEphemeral: true, quoted:mek, contextInfo : {forwardingScore: 508, isForwarded: true}})
-                      }
                 // Sewa
              _sewa.expiredCheck(dha, sewa)
              
@@ -1275,7 +1270,7 @@ ${petik}FUN MENU${petik}
 \n© NIZAM STORE`
                buttons = [{buttonId: `${prefix}donasi`,buttonText:{displayText: 'DONASI'},type:1},{buttonId: `${prefix}rules`,buttonText:{displayText: 'RULES'},type:1},{buttonId:`${prefix}owner`,buttonText:{displayText:'OWNER'},type:1}]
 
-               imageMsg = (await dha.prepareMessageMedia(fs.readFileSync(`./media/sherlynn.jpg`), 'imageMessage', {thumbnail: fs.readFileSync(`./media/sherlynn.jpg`)})).imageMessage
+               imageMsg = (await dha.prepareMessageMedia(fs.readFileSync(`./media/canss.jpg`), 'imageMessage', {thumbnail: fs.readFileSync(`./media/canss.jpg`)})).imageMessage
 
                buttonsMessage = {
                contentText: `${menu}`,
@@ -2287,7 +2282,7 @@ case 'ttdl':
               if (!q) return reply('Linknya?')
               if (!q.includes('tiktok')) return reply(mess.error.Iv)
               buttons = [{buttonId: `${prefix}tiktoknowm ${q}`,buttonText:{displayText: `🎥 Video`},type:1},{buttonId:`${prefix}ttaudio ${q}`,buttonText:{displayText:'🎵 Mp3'},type:1}]
-              imageMsg = (await dha.prepareMessageMedia(fs.readFileSync(`./media/sherlynn.jpg`), 'imageMessage', {thumbnail: fs.readFileSync(`./media/sherlynn.jpg`)})).imageMessage
+              imageMsg = (await dha.prepareMessageMedia(fs.readFileSync(`./media/canss.jpg`), 'imageMessage', {thumbnail: fs.readFileSync(`./media/canss.jpg`)})).imageMessage
               buttonsMessage = {footerText:'Jangan Lupa Subscribe Yt PSYCO BOTZ\n Helpme to 1k subscriber', imageMessage: imageMsg,
               contentText:`Silahkan pilihan media yg mau di download kak:v`,buttons,headerType:4}
               prep = await dha.prepareMessageFromContent(from,{buttonsMessage},{quoted: mek})
