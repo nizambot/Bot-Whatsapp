@@ -94,7 +94,7 @@ gamewaktu = setting.gamewaktu
 petik = '```'
 fake = 'CREATOR BOT INDONESIA'
 ban =[]
-lolkey = 'najisbaperanRw'
+lolkey = 'YTRAMLANID'
 zekskey = 'NinoWangy'
 psycokey = 'PsycoBot'
 xteamkey = 'kurrxd09'
@@ -355,18 +355,17 @@ module.exports = dha = async (dha, mek) => {
 });
 }
        
-const sendButton = async (from, context, fortext, but, mek) => {
-            buttonMessages = {
-            contentText: context,
-            footerText: fortext,
-            buttons: but,
-            headerType: 1
-            }
-            Mufar.sendMessage(from, buttonMessages, buttonsMessage, {
-            quoted: freply
-            })
-            }
-
+       //button image
+const sendButImage = async(id, text1, desc1, gam1, but = [], options = {}) => {
+try {
+mhan = await dha.prepareMessage(from, gam1, image, {thumbanil: gam1})
+const buttonMessages = {
+imageMessage: mhan.message.imageMessage,
+contentText: text1,
+footerText: desc1,
+buttons: but,
+headerType: 4
+}
 dha.sendMessage(id, buttonMessages, MessageType.buttonsMessage, options)
 } catch(e) {
 if (e.toString().includes('marker was')) {
@@ -636,6 +635,11 @@ function banChat() {
         return true
     }
 }
+ if (!isGroup && !isCmd && !mek.key.fromMe) {
+      	simi = await fetchJson(`https://api.simsimi.net/v2/?text=${cmd}&lc=id`)
+                     sami = simi.success
+                        dha.sendMessage(from, `_${sami}_`, text, {thumbnail: fakeimage, sendEphemeral: true, quoted:mek, contextInfo : {forwardingScore: 508, isForwarded: true}})
+                      }
                 // Sewa
              _sewa.expiredCheck(dha, sewa)
              
@@ -1240,7 +1244,6 @@ ${petik}OTHER MENU${petik}
 *=> ${prefix}cuaca*
 *=> ${prefix}infogempa*
 *=> ${prefix}tourl*
-*=> ${prefix}tinyurl*
 *=> ${prefix}ppcouple*
 *=> ${prefix}bilangangka*
 *=> ${prefix}resepmasakan*
@@ -3339,7 +3342,7 @@ if (args.length == 0) return reply(`Idnya mana kak?`)
                    case 'anjing':
                    reply(mess.wait)
                    anu = await getBuffer(`http://api.lolhuman.xyz/api/sticker/${command}?apikey=${lolkey}`)
-                    dha.sendMessage(from, anu, sticker, { quoted : mek })
+                    dha.sendMessage(from, anu, sticker, { quoted : ftext })
                     break
        case 'telesticker': 
        case 'telestiker':
@@ -4337,6 +4340,9 @@ case 'linkgc':
               reply (toxic)
 })
               break
+              
+              
+              
         case 'citacita':
               const cita =['https://api-psycobotz.000webhostapp.com/citacita/citacita1.mp3','https://api-psycobotz.000webhostapp.com/citacita/citacita2.mp3','https://api-psycobotz.000webhostapp.com/citacita/citacita3.mp3','https://api-psycobotz.000webhostapp.com/citacita/citacita4.mp3','https://api-psycobotz.000webhostapp.com/citacita/citacita5.mp3','https://api-psycobotz.000webhostapp.com/citacita/citacita6.mp3','https://api-psycobotz.000webhostapp.com/citacita/citacita7.mp3','https://api-psycobotz.000webhostapp.com/citacita/citacita8.mp3','https://api-psycobotz.000webhostapp.com/citacita/citacita9.mp3','https://api-psycobotz.000webhostapp.com/citacita/citacita10.mp3','https://api-psycobotz.000webhostapp.com/citacita/citacita11.mp3','https://api-psycobotz.000webhostapp.com/citacita/citacita12.mp3','https://api-psycobotz.000webhostapp.com/citacita/citacita13.mp3','https://api-psycobotz.000webhostapp.com/citacita/citacita14.mp3','https://api-psycobotz.000webhostapp.com/citacita/citacita15.mp3','https://api-psycobotz.000webhostapp.com/citacita/citacita16.mp3','https://api-psycobotz.000webhostapp.com/citacita/citacita17.mp3','https://api-psycobotz.000webhostapp.com/citacita/citacita18.mp3','https://api-psycobotz.000webhostapp.com/citacita/citacita19.mp3','https://api-psycobotz.000webhostapp.com/citacita/citacita20.mp3','https://api-psycobotz.000webhostapp.com/citacita/citacita21.mp3','https://api-psycobotz.000webhostapp.com/citacita/citacita22.mp3','https://api-psycobotz.000webhostapp.com/citacita/citacita23.mp3','https://api-psycobotz.000webhostapp.com/citacita/citacita24.mp3','https://api-psycobotz.000webhostapp.com/citacita/citacita25.mp3','https://api-psycobotz.000webhostapp.com/citacita/citacita26.mp3','https://api-psycobotz.000webhostapp.com/citacita/citacita27.mp3','https://api-psycobotz.000webhostapp.com/citacita/citacita28.mp3','https://api-psycobotz.000webhostapp.com/citacita/citacita29.mp3','https://api-psycobotz.000webhostapp.com/citacita/citacita30.mp3','https://api-psycobotz.000webhostapp.com/citacita/citacita31.mp3','https://api-psycobotz.000webhostapp.com/citacita/citacita32.mp3','https://api-psycobotz.000webhostapp.com/citacita/citacita33.mp3','https://api-psycobotz.000webhostapp.com/citacita/citacita34.mp3','https://api-psycobotz.000webhostapp.com/citacita/citacita35.mp3']
               const cita3 = cita[Math.floor(Math.random() * cita.length)]
@@ -4830,69 +4836,41 @@ case 'coffe':
               reply('Pilih enable atau disable!')
 }
               break
-case 'antilink' :
-if (!isGroup) return reply(mess.only.group)
-if (!isGroupAdmins && !itsMe) return reply(mess.only.admin)
-if (!isBotGroupAdmins) return reply(`*Bot Bukan Admin :)*`)
-but = [
-{ buttonId: '!antilinkon', buttonText: { displayText: 'ON' }, type: 1 },
-{ buttonId: '!antilinkoff', buttonText: { displayText: 'OFF' }, type: 1 }
-]
-sendButton(from, `*- ON : Untuk mengaktifkan*\n*- OFF : Untuk menonaktifkan!*`, ftoko, but, mek)
-break
-
-case 'antilinkon' :
-if (!isGroup) return reply(mess.only.group)
-if (!isGroupAdmins&& !itsMe) return reply(mess.only.admin)
-if (!isBotGroupAdmins) return reply(mess.only.Badmin)
-if (!isAntilink) return reply('Udah aktif')
-anlink.push(from)
-fs.writeFileSync('./database/group/antilink.json', JSON.stringify(anlink))
-reply(`*[❗] Sudah di Aktifkan!*`)
-break
-
-case 'antilinkoff' :
-if (!isGroup) return reply(mess.only.group)
-if (!isGroupAdmins && !itsMe) return reply(mess.only.admin)
-if (!isBotGroupAdmins) return reply(mess.only.Badmin)
-if (!isAntilink) return reply('Udah mati kak')
-let anu = anlink.indexOf(from)
-anlink.splice(anu, 1)
-fs.writeFileSync('./database/group/antilink.json', JSON.stringify(anlink))
-reply(`*[❗] Sudah di Nonaktifkan!*`)
-break
-
-case 'welcome' :
+       case 'antilink':
+              if (!isGroupAdmins) return reply(mess.only.admin)
               if (!isGroup) return reply(mess.only.group)
+              if (!isBotGroupAdmins) return reply(`Bot Harus jadi Admin`)
+              if (!q) return reply(`Pilih enable atau disable`)
+              if (args[0].toLowerCase() === 'enable'){
+              if (isAntiLink) return reply(`Udah aktif`)
+              antilink.push(from)
+              fs.writeFileSync('./database/group/antilink.json', JSON.stringify(antilink))
+              reply('*「 ANTILINK DI AKTIFKAN 」*\n\nYang Ngirim Link Group Bakal Ke Kick!')
+              } else if (args[0].toLowerCase() === 'disable'){
+              let anu = antilink.indexOf(from)
+              antilink.splice(anu, 1)
+              fs.writeFileSync('./database/group/antilink.json', JSON.stringify(antilink))
+              reply('*「 ANTILINK DI NONAKTIFKAN 」*')
+              } else {
+              reply(`Pilih enable atau disable`)
+}
+              break
+       case 'welcome':
                if (!isGroupAdmins) return reply(mess.only.admin)
-if (!isBotGroupAdmins) return reply(mess.only.Badmin)
-but = [
-{ buttonId: '!welcomeon', buttonText: { displayText: 'ON' }, type: 1 },
-{ buttonId: '!welcomeoff', buttonText: { displayText: 'OFF' }, type: 1 }
-]
-sendButton(from, `*- ON : Untuk mengaktifkan*\n*- OFF : Untuk menonaktifkan!*`, ftoko, but, mek)
-break
-
-case 'welcomeon' :
-              if (!isGroup) return reply(mess.only.group)
-               if (!isGroupAdmins) return reply(mess.only.admin)
-if (!isBotGroupAdmins) return reply(mess.only.Badmin)
-if (!isWelkom) return reply('Udah aktif')
-welkom.push(from)
-fs.writeFileSync('./database/group/welcome.json', JSON.stringify(welkom))
-reply(`*[❗] Sudah di Aktifkan!*`)
-break
-
-case 'welcomeoff' :
-              if (!isGroup) return reply(mess.only.group)
-               if (!isGroupAdmins) return reply(mess.only.admin)
-if (!isBotGroupAdmins) return reply(mess.only.Badmin)
-if (!isWelkom) return reply('Udah mati kak')
-welkom.indexOf(from)
-fs.writeFileSync('./database/group/welcome.json', JSON.stringify(welkom))
-reply(`*[❗] Sudah di Nonaktifkan!*`)
-break
-
+               if (!isGroup) return reply(mess.only.group)
+               if (args.length < 1) return reply('!welcome enable/disable')
+               if ((args[0]) === 'enable') {
+               if (isWelkom) return reply('Udah aktif')
+               welkom.push(from)
+               fs.writeFileSync('./database/group/welcome.json', JSON.stringify(welkom))
+               reply('Sukses mengaktifkan fitur welcome di group ini ✔️')
+               } else if ((args[0]) === 'disable') {
+               welkom.splice(from, 1)
+               fs.writeFileSync('./database/group/welcome.json', JSON.stringify(welkom))
+               reply('Sukses menonaktifkan fitur welcome di group ini ✔️')
+               } else {
+               reply('Enable untuk mengaktifkan, disable untuk menonaktifkan')
+}
                break
         case 'mute':
                if (!isGroup) return reply(mess.only.group)
@@ -4917,8 +4895,8 @@ break
                if (!isGroup) return reply(mess.only.group)
                if (!isGroupAdmins) return reply(mess.only.admin)
                list = []
-               com = [`group buka`,`leveling enable`,`welcomeon`,`antilinkon`,`mute enable`]
-               comm = [`group tutup`,`leveling disable`,`welcomeoff`,`antilinkoff`,`mute disable`]
+               com = [`group buka`,`leveling enable`,`wel enable`,`antilink enable`,`mute enable`]
+               comm = [`group tutup`,`leveling disable`,`wel disable`,`antilink disable`,`mute disable`]
                listnya = [`Group open/close`,`Leveling enable/disable`,`Welcome enable/disable`,`Antilink enable/disable`,`Mute enable/disable`]
                suruh = [`Enable`, `Disable`]
                fiturname = [`Group`,`Leveling`,`Welcome`,`Antilink`,`Mute`]
