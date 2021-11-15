@@ -355,28 +355,18 @@ module.exports = dha = async (dha, mek) => {
 });
 }
        
-       //button image
-const sendButImage = async(id, text1, desc1, gam1, but = [], options = {}) => {
-try {
-mhan = await dha.prepareMessage(from, gam1, image, {thumbanil: gam1})
-const buttonMessages = {
-imageMessage: mhan.message.imageMessage,
-contentText: text1,
-footerText: desc1,
-buttons: but,
-headerType: 4
-}
-dha.sendMessage(id, buttonMessages, MessageType.buttonsMessage, options)
-} catch(e) {
-if (e.toString().includes('marker was')) {
-mhan = await dha.prepareMessage(from, gam1, image, {thumbanil: gam1})
-const buttonMessages = {
-imageMessage: mhan.message.imageMessage,
-contentText: text1,
-footerText: desc1,
-buttons: but,
-headerType: 4
-}
+const sendButton = async (from, context, fortext, but, mek) => {
+            buttonMessages = {
+            contentText: context,
+            footerText: fortext,
+            buttons: but,
+            headerType: 1
+            }
+            Mufar.sendMessage(from, buttonMessages, buttonsMessage, {
+            quoted: freply
+            })
+            }
+
 dha.sendMessage(id, buttonMessages, MessageType.buttonsMessage, options)
 } else if (e.toString().includes('ENOENT')) {
 mhan = await dha.prepareMessage(from, gam1, image, {thumbanil: gam1})
@@ -3343,7 +3333,7 @@ if (args.length == 0) return reply(`Idnya mana kak?`)
                    case 'anjing':
                    reply(mess.wait)
                    anu = await getBuffer(`http://api.lolhuman.xyz/api/sticker/${command}?apikey=${lolkey}`)
-                    dha.sendMessage(from, anu, sticker, { quoted : ftext })
+                    dha.sendMessage(from, anu, sticker, { quoted : mek })
                     break
        case 'telesticker': 
        case 'telestiker':
@@ -4834,41 +4824,69 @@ case 'coffe':
               reply('Pilih enable atau disable!')
 }
               break
-       case 'antilink':
-              if (!isGroupAdmins) return reply(mess.only.admin)
+case 'antilink' :
+if (!isGroup) return reply(mess.only.group)
+if (!isGroupAdmins && !itsMe) return reply(mess.only.admin)
+if (!isBotGroupAdmins) return reply(`*Bot Bukan Admin :)*`)
+but = [
+{ buttonId: '!antilinkon', buttonText: { displayText: 'ON' }, type: 1 },
+{ buttonId: '!antilinkoff', buttonText: { displayText: 'OFF' }, type: 1 }
+]
+sendButton(from, `*- ON : Untuk mengaktifkan*\n*- OFF : Untuk menonaktifkan!*`, ftoko, but, mek)
+break
+
+case 'antilinkon' :
+if (!isGroup) return reply(mess.only.group)
+if (!isGroupAdmins&& !itsMe) return reply(mess.only.admin)
+if (!isBotGroupAdmins) return reply(mess.only.Badmin)
+if (!isAntilink) return reply('Udah aktif')
+anlink.push(from)
+fs.writeFileSync('./database/group/antilink.json', JSON.stringify(anlink))
+reply(`*[❗] Sudah di Aktifkan!*`)
+break
+
+case 'antilinkoff' :
+if (!isGroup) return reply(mess.only.group)
+if (!isGroupAdmins && !itsMe) return reply(mess.only.admin)
+if (!isBotGroupAdmins) return reply(mess.only.Badmin)
+if (!isAntilink) return reply('Udah mati kak')
+let anu = anlink.indexOf(from)
+anlink.splice(anu, 1)
+fs.writeFileSync('./database/group/antilink.json', JSON.stringify(anlink))
+reply(`*[❗] Sudah di Nonaktifkan!*`)
+break
+
+case 'welcome' :
               if (!isGroup) return reply(mess.only.group)
-              if (!isBotGroupAdmins) return reply(`Bot Harus jadi Admin`)
-              if (!q) return reply(`Pilih enable atau disable`)
-              if (args[0].toLowerCase() === 'enable'){
-              if (isAntiLink) return reply(`Udah aktif`)
-              antilink.push(from)
-              fs.writeFileSync('./database/group/antilink.json', JSON.stringify(antilink))
-              reply('*「 ANTILINK DI AKTIFKAN 」*\n\nYang Ngirim Link Group Bakal Ke Kick!')
-              } else if (args[0].toLowerCase() === 'disable'){
-              let anu = antilink.indexOf(from)
-              antilink.splice(anu, 1)
-              fs.writeFileSync('./database/group/antilink.json', JSON.stringify(antilink))
-              reply('*「 ANTILINK DI NONAKTIFKAN 」*')
-              } else {
-              reply(`Pilih enable atau disable`)
-}
-              break
-       case 'wel':
                if (!isGroupAdmins) return reply(mess.only.admin)
-               if (!isGroup) return reply(mess.only.group)
-               if (args.length < 1) return reply('!welcome enable/disable')
-               if ((args[0]) === 'enable') {
-               if (isWelkom) return reply('Udah aktif')
-               welkom.push(from)
-               fs.writeFileSync('./database/group/welcome.json', JSON.stringify(welkom))
-               reply('Sukses mengaktifkan fitur welcome di group ini ✔️')
-               } else if ((args[0]) === 'disable') {
-               welkom.splice(from, 1)
-               fs.writeFileSync('./database/group/welcome.json', JSON.stringify(welkom))
-               reply('Sukses menonaktifkan fitur welcome di group ini ✔️')
-               } else {
-               reply('Enable untuk mengaktifkan, disable untuk menonaktifkan')
-}
+if (!isBotGroupAdmins) return reply(mess.only.Badmin)
+but = [
+{ buttonId: '!welcomeon', buttonText: { displayText: 'ON' }, type: 1 },
+{ buttonId: '!welcomeoff', buttonText: { displayText: 'OFF' }, type: 1 }
+]
+sendButton(from, `*- ON : Untuk mengaktifkan*\n*- OFF : Untuk menonaktifkan!*`, ftoko, but, mek)
+break
+
+case 'welcomeon' :
+              if (!isGroup) return reply(mess.only.group)
+               if (!isGroupAdmins) return reply(mess.only.admin)
+if (!isBotGroupAdmins) return reply(mess.only.Badmin)
+if (!isWelkom) return reply('Udah aktif')
+welkom.push(from)
+fs.writeFileSync('./database/group/welcome.json', JSON.stringify(welkom))
+reply(`*[❗] Sudah di Aktifkan!*`)
+break
+
+case 'welcomeoff' :
+              if (!isGroup) return reply(mess.only.group)
+               if (!isGroupAdmins) return reply(mess.only.admin)
+if (!isBotGroupAdmins) return reply(mess.only.Badmin)
+if (!isWelkom) return reply('Udah mati kak')
+welkom.indexOf(from)
+fs.writeFileSync('./database/group/welcome.json', JSON.stringify(welkom))
+reply(`*[❗] Sudah di Nonaktifkan!*`)
+break
+
                break
         case 'mute':
                if (!isGroup) return reply(mess.only.group)
@@ -4893,8 +4911,8 @@ case 'coffe':
                if (!isGroup) return reply(mess.only.group)
                if (!isGroupAdmins) return reply(mess.only.admin)
                list = []
-               com = [`group buka`,`leveling enable`,`wel enable`,`antilink enable`,`mute enable`]
-               comm = [`group tutup`,`leveling disable`,`wel disable`,`antilink disable`,`mute disable`]
+               com = [`group buka`,`leveling enable`,`welcomeon`,`antilinkon`,`mute enable`]
+               comm = [`group tutup`,`leveling disable`,`welcomeoff`,`antilinkoff`,`mute disable`]
                listnya = [`Group open/close`,`Leveling enable/disable`,`Welcome enable/disable`,`Antilink enable/disable`,`Mute enable/disable`]
                suruh = [`Enable`, `Disable`]
                fiturname = [`Group`,`Leveling`,`Welcome`,`Antilink`,`Mute`]
@@ -5241,7 +5259,7 @@ console.log('[',color('TEXT','teal'),']',`Message : ${budy} From`, color(pushnam
             if (!e.includes("Cannot set property 'mtype' of undefined")) {
             if (!e.includes("jid is not defined")) {
      console.log(color('|ERR|', 'red'), color(e, 'cyan'))
-     dha.sendMessage(`${owner}@s.whatsapp.net`, `─────「 *ALERT-ERROR* 」─────\n\n\`\`\`${e}\`\`\`\n\n────────────────────`, MessageType.text, {contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title: "Developer P S Y C O  B O T",body:"",previewType:"PHOTO",thumbnail:fs.readFileSync('./media/Pino Bagas S.pdf'),sourceUrl:"https://wa.me/6285643260438"}}})
+     dha.sendMessage(`${owner}@s.whatsapp.net`, `─────「 *ALERT-ERROR* 」─────\n\n\`\`\`${e}\`\`\`\n\n────────────────────`, MessageType.text, {contextInfo: { forwardingScore: 508, isForwarded: true, externalAdReply:{title: "Developer P S Y C O  B O T",body:"",previewType:"PHOTO",thumbnail:fs.readFileSync('./media/canss.jpg'),sourceUrl:"https://wa.me/6285643260438"}}})
 	}
     }
     }
