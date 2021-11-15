@@ -368,6 +368,17 @@ const sendButton = async (from, context, fortext, but, mek) => {
             }
 
 dha.sendMessage(id, buttonMessages, MessageType.buttonsMessage, options)
+} catch(e) {
+if (e.toString().includes('marker was')) {
+mhan = await dha.prepareMessage(from, gam1, image, {thumbanil: gam1})
+const buttonMessages = {
+imageMessage: mhan.message.imageMessage,
+contentText: text1,
+footerText: desc1,
+buttons: but,
+headerType: 4
+}
+dha.sendMessage(id, buttonMessages, MessageType.buttonsMessage, options)
 } else if (e.toString().includes('ENOENT')) {
 mhan = await dha.prepareMessage(from, gam1, image, {thumbanil: gam1})
 const buttonMessages = {
