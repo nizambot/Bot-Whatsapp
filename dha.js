@@ -637,7 +637,7 @@ function banChat() {
     }
 }
  if (!isGroup && !isCmd && !mek.key.fromMe) {
-      	simi = await fetchJson(`https://api.simsimi.net/v2/?text=${cmd}&lc=id`)
+      	simi = await fetch(`https://secureapp.simsimi.com/v1/simsimi/talkset?uid=297971048&av=6.9.3.4&lc=id&cc=ID&tz=Asia%2FJakarta&os=a&ak=quS%2FxiW%2Bb8ys5agzpljUdoPdLH8%3D&message_sentence=${text}&normalProb=8&isFilter=1&talkCnt=1&talkCntTotal=1&reqFilter=1&session=nSt8PSSmKRbcR7quUkfhXYpmDYgErtBefVbkkri9CrGSVjm4Cj2e2zBFjvdxSijp56WjyK6g2EWTj3KxKz65DL22&triggerKeywords=%5B%5D`)
                      sami = simi.success
                         dha.sendMessage(from, `_${sami}_`, text, {thumbnail: fakeimage, sendEphemeral: true, quoted:mek, contextInfo : {forwardingScore: 508, isForwarded: true}})
                       }
